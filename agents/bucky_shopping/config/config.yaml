@@ -1,0 +1,150 @@
+# Agent Bucky Configuration
+# Shopping & Inventory Management Agent
+
+agent:
+  name: "bucky"
+  description: "Shopping & Inventory Management Agent"
+  port: 8002
+  version: "1.0.0"
+
+# AI Configuration
+ai:
+  model: "gpt-4"
+  temperature: 0.25
+  max_tokens: 2000
+  system_prompt_file: "prompts.yaml"
+
+# Tool Configuration
+tools:
+  pantry_tracker:
+    enabled: true
+    auto_expiry_alerts: true
+    low_stock_threshold: 2
+    barcode_scanning: true
+    receipt_processing: true
+    
+  price_comparator:
+    enabled: true
+    stores:
+      - kroger
+      - walmart
+      - target
+      - costco
+      - whole_foods
+    price_history_days: 90
+    deal_threshold_percent: 15
+    
+  shopping_optimizer:
+    enabled: true
+    default_transportation: "car"
+    max_trip_duration: 120  # minutes
+    route_optimization: "time_balanced"
+    traffic_integration: true
+    
+  deal_finder:
+    enabled: true
+    coupon_sources:
+      - manufacturer
+      - store_apps
+      - third_party
+    cashback_tracking: true
+    sale_prediction: true
+
+# External API Configuration
+external_apis:
+  kroger:
+    enabled: true
+    base_url: "https://api.kroger.com"
+    rate_limit: 100  # requests per hour
+    
+  walmart:
+    enabled: true
+    base_url: "https://api.walmart.com"
+    rate_limit: 150
+    
+  instacart:
+    enabled: false
+    base_url: "https://api.instacart.com"
+    
+  google_maps:
+    enabled: true
+    base_url: "https://maps.googleapis.com"
+    rate_limit: 2500  # requests per day
+
+# Data Storage
+storage:
+  pantry_data_retention: 365  # days
+  price_history_retention: 180  # days
+  deal_cache_duration: 24  # hours
+  receipt_storage: true
+
+# Notifications
+notifications:
+  expiry_alerts:
+    enabled: true
+    advance_warning_days: 3
+    methods: ["email", "push"]
+    
+  deal_alerts:
+    enabled: true
+    savings_threshold: 20  # percent
+    methods: ["push"]
+    
+  low_stock_alerts:
+    enabled: true
+    threshold_items: 5
+    methods: ["email"]
+
+# Shopping Preferences
+shopping:
+  default_stores:
+    - kroger
+    - walmart
+    - target
+  
+  store_priorities:
+    price: 40
+    quality: 30
+    convenience: 20
+    deals: 10
+  
+  budget_tracking:
+    enabled: true
+    monthly_budget: 800
+    category_budgets:
+      groceries: 600
+      household: 100
+      personal_care: 100
+  
+  optimization_preferences:
+    minimize_trips: true
+    combine_errands: true
+    avoid_peak_hours: true
+    prefer_deals: true
+
+# Performance Settings
+performance:
+  cache_enabled: true
+  cache_duration: 3600  # seconds
+  batch_processing: true
+  concurrent_api_calls: 5
+  
+# Logging
+logging:
+  level: "INFO"
+  file: "logs/bucky.log"
+  max_size: "10MB"
+  backup_count: 5
+  
+  events:
+    pantry_updates: true
+    price_changes: true
+    deal_discoveries: true
+    shopping_trips: true
+
+# Security
+security:
+  api_key_rotation: 90  # days
+  data_encryption: true
+  audit_logging: true
+  rate_limiting: true

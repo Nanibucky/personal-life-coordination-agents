@@ -1,0 +1,245 @@
+# Agent Nani Configuration
+# Scheduler & Calendar Management Agent
+
+agent:
+  name: "nani"
+  description: "Scheduler & Calendar Management Agent"
+  port: 8001
+  version: "1.0.0"
+
+# AI Configuration
+ai:
+  model: "gpt-4"
+  temperature: 0.2
+  max_tokens: 2000
+  system_prompt: |
+    You are Nani, an expert scheduling and calendar management agent. 
+    You excel at optimizing time allocation, managing complex calendars, and coordinating 
+    schedules across multiple domains. You work collaboratively with other agents to 
+    ensure optimal life coordination.
+    
+    Your core competencies:
+    - Intelligent time slot optimization
+    - Multi-timezone coordination
+    - Energy-based scheduling
+    - Focus time management
+    - Calendar conflict resolution
+    
+    Always consider:
+    - User's energy patterns throughout the day
+    - Travel time between locations
+    - Meeting fatigue and buffer time
+    - Work-life balance
+    - Coordination with health and nutrition schedules
+
+# Database Configuration
+database:
+  type: "postgresql"
+  connection_pool_size: 10
+  timeout: 30
+
+# Redis Configuration
+redis:
+  connection_pool_size: 5
+  timeout: 10
+
+# External API Integrations
+external_apis:
+  google_calendar:
+    enabled: true
+    scopes:
+      - "https://www.googleapis.com/auth/calendar"
+      - "https://www.googleapis.com/auth/calendar.events"
+    rate_limit:
+      requests_per_minute: 100
+      burst_limit: 20
+  
+  outlook:
+    enabled: false
+    rate_limit:
+      requests_per_minute: 60
+  
+  zoom:
+    enabled: false
+    rate_limit:
+      requests_per_minute: 100
+  
+  weather_api:
+    enabled: true
+    provider: "openweathermap"
+    rate_limit:
+      requests_per_minute: 60
+
+# Tool Configuration
+tools:
+  calendar_manager:
+    enabled: true
+    cache_duration: 300  # 5 minutes
+    max_events_per_request: 100
+    sync_frequency: 900  # 15 minutes
+    
+  scheduling_optimizer:
+    enabled: true
+    algorithm: "genetic"
+    max_iterations: 1000
+    convergence_threshold: 0.001
+    optimization_factors:
+      - "energy_levels"
+      - "travel_time"
+      - "meeting_fatigue"
+      - "work_life_balance"
+    
+  timezone_handler:
+    enabled: true
+    default_timezone: "UTC"
+    supported_timezones:
+      - "US/Eastern"
+      - "US/Central"
+      - "US/Mountain"
+      - "US/Pacific"
+      - "Europe/London"
+      - "Europe/Paris"
+      - "Asia/Tokyo"
+      - "Australia/Sydney"
+    
+  focus_blocker:
+    enabled: true
+    default_focus_duration: 120  # minutes
+    minimum_break_time: 15
+    maximum_focus_sessions_per_day: 3
+
+# A2A Communication Settings
+a2a:
+  max_message_size: 1048576  # 1MB
+  timeout: 30000  # 30 seconds
+  retry_attempts: 3
+  retry_delay: 1000  # 1 second
+  
+  # Message handlers for incoming A2A messages
+  handlers:
+    get_optimal_workout_times:
+      priority: "high"
+      timeout: 15000
+      required_permissions: ["read"]
+    
+    schedule_meal_prep_sessions:
+      priority: "medium"
+      timeout: 20000
+      required_permissions: ["write"]
+    
+    plan_shopping_trips:
+      priority: "low"
+      timeout: 25000
+      required_permissions: ["read"]
+
+# Scheduling Preferences
+scheduling:
+  work_hours:
+    start: "09:00"
+    end: "17:00"
+    timezone: "US/Eastern"
+  
+  energy_patterns:
+    high_energy:
+      - "09:00-11:00"
+      - "14:00-16:00"
+    medium_energy:
+      - "11:00-12:00"
+      - "16:00-17:00"
+    low_energy:
+      - "13:00-14:00"
+      - "17:00-18:00"
+  
+  meeting_preferences:
+    max_duration: 60  # minutes
+    buffer_time: 15
+    max_back_to_back: 2
+    preferred_meeting_times:
+      - "10:00-11:00"
+      - "14:00-15:00"
+      - "15:00-16:00"
+  
+  focus_time:
+    preferred_times:
+      - "09:00-11:00"
+      - "14:00-16:00"
+    minimum_duration: 60
+    maximum_duration: 180
+
+# Optimization Settings
+optimization:
+  weight_factors:
+    energy_alignment: 0.3
+    travel_efficiency: 0.2
+    meeting_clustering: 0.2
+    focus_time_protection: 0.15
+    work_life_balance: 0.15
+  
+  constraints:
+    max_commute_time: 45  # minutes
+    lunch_break_duration: 60
+    end_of_day_buffer: 30
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/nani.log"
+  max_file_size: "10MB"
+  backup_count: 5
+
+# Performance Settings
+performance:
+  cache_enabled: true
+  cache_ttl: 3600  # 1 hour
+  max_concurrent_requests: 50
+  request_timeout: 30
+
+# Security Settings
+security:
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 100
+    burst_allowance: 20
+  
+  authentication:
+    required: true
+    token_expiry: 3600
+  
+  encryption:
+    enabled: true
+    algorithm: "AES-256"
+
+# Health Check Settings
+health_check:
+  enabled: true
+  interval: 30  # seconds
+  timeout: 5
+  endpoints:
+    - "/health"
+    - "/tools"
+    - "/metrics"
+
+# Metrics and Monitoring
+metrics:
+  enabled: true
+  collection_interval: 60  # seconds
+  retention_period: "7d"
+  
+  tracked_metrics:
+    - "request_count"
+    - "response_time"
+    - "error_rate"
+    - "tool_execution_time"
+    - "a2a_message_count"
+    - "scheduling_success_rate"
+
+# Feature Flags
+features:
+  smart_rescheduling: true
+  automatic_conflict_resolution: true
+  energy_based_optimization: true
+  multi_calendar_sync: true
+  weather_consideration: false
+  travel_time_estimation: true
+  focus_time_suggestions: true

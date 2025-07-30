@@ -1,0 +1,239 @@
+# Agent Luna Configuration
+# Fitness & Health Optimization Agent
+
+agent:
+  name: "luna"
+  description: "Fitness & Health Optimization Agent"
+  port: 8004
+  version: "1.0.0"
+
+# AI Configuration
+ai:
+  model: "gpt-4"
+  temperature: 0.3
+  max_tokens: 2000
+  system_prompt: |
+    You are Luna, an expert health and fitness optimization agent. 
+    You excel at analyzing health data, creating personalized workout programs, and 
+    optimizing recovery. You work collaboratively with other agents to ensure 
+    comprehensive wellness coordination.
+    
+    Your expertise includes:
+    - Fitness tracking and analysis
+    - Personalized workout programming
+    - Health risk assessment
+    - Recovery optimization
+    - Nutrition coordination with other agents
+    
+    Always provide evidence-based recommendations and consider the user's 
+    current fitness level, health status, and goals.
+
+# Database Configuration
+database:
+  primary:
+    type: "postgresql"
+    host: "localhost"
+    port: 5432
+    database: "plc_agents"
+    username: "plc_user"
+    password: "plc_password"
+    pool_size: 10
+    max_overflow: 20
+  
+  cache:
+    type: "redis"
+    host: "localhost" 
+    port: 6379
+    database: 1
+    ttl: 3600  # 1 hour default TTL
+
+# External API Configuration
+external_apis:
+  fitbit:
+    client_id: "${FITBIT_CLIENT_ID}"
+    client_secret: "${FITBIT_CLIENT_SECRET}"
+    base_url: "https://api.fitbit.com/1"
+    rate_limit: 150  # requests per hour
+    
+  strava:
+    client_id: "${STRAVA_CLIENT_ID}"
+    client_secret: "${STRAVA_CLIENT_SECRET}"
+    base_url: "https://www.strava.com/api/v3"
+    rate_limit: 1000  # requests per 15 minutes
+    
+  apple_health:
+    enabled: false  # Requires iOS app integration
+    
+  garmin:
+    enabled: false  # Future integration
+    base_url: "https://apis.garmin.com"
+
+# Tool Configuration
+tools:
+  fitness_tracker:
+    enabled: true
+    sync_interval: 300  # 5 minutes
+    data_retention_days: 365
+    supported_devices:
+      - "fitbit"
+      - "apple_health" 
+      - "garmin"
+      - "strava"
+      - "manual"
+    
+  health_analyzer:
+    enabled: true
+    analysis_types:
+      - "risk_assessment"
+      - "pattern_recognition"
+      - "goal_progress"
+      - "optimization_suggestions"
+    ml_models:
+      risk_assessment: "health_risk_v1"
+      pattern_recognition: "pattern_detect_v2"
+    
+  workout_planner:
+    enabled: true
+    program_duration_weeks: 12
+    supported_goals:
+      - "weight_loss"
+      - "muscle_gain"
+      - "endurance"
+      - "strength"
+      - "flexibility"
+      - "sports_performance"
+    difficulty_levels:
+      - "beginner"
+      - "intermediate" 
+      - "advanced"
+    
+  recovery_monitor:
+    enabled: true
+    metrics:
+      - "hrv"
+      - "resting_hr"
+      - "sleep_hours"
+      - "sleep_quality"
+      - "stress_level"
+      - "soreness_rating"
+    prediction_days: 3
+
+# Health Metrics Thresholds
+health_thresholds:
+  heart_rate:
+    resting_low: 50
+    resting_high: 80
+    max_percentage: 85  # % of age-predicted max
+    
+  sleep:
+    minimum_hours: 6
+    optimal_hours: 8
+    deep_sleep_minimum: 1.5  # hours
+    
+  stress:
+    low_threshold: 3
+    high_threshold: 7
+    
+  recovery:
+    excellent_threshold: 80
+    good_threshold: 60
+    fair_threshold: 40
+
+# Nutrition Guidelines (for coordination with Milo)
+nutrition:
+  protein_per_kg:
+    sedentary: 0.8
+    active: 1.2
+    strength_training: 1.6
+    endurance: 1.4
+    
+  calorie_adjustments:
+    weight_loss: -500  # deficit per day
+    muscle_gain: 300   # surplus per day
+    maintenance: 0
+    
+  meal_timing:
+    pre_workout_window: 60  # minutes before
+    post_workout_window: 30  # minutes after
+    protein_distribution: "even"  # across meals
+
+# A2A Communication
+a2a_communication:
+  enabled: true
+  message_timeout: 30000  # 30 seconds
+  retry_attempts: 3
+  
+  # Intent handlers Luna can process
+  incoming_intents:
+    - "nutrition_requirements"
+    - "workout_time_recommendations" 
+    - "analyze_schedule_health_impact"
+    - "evaluate_meal_plan_fitness"
+    
+  # Intents Luna can send to other agents
+  outgoing_intents:
+    to_nani:
+      - "optimal_workout_times"
+      - "recovery_time_needed"
+    to_milo:
+      - "nutrition_requirements"
+      - "supplement_recommendations"
+    to_bucky:
+      - "health_food_priorities"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/luna.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  
+  # Log specific events
+  log_health_data_sync: true
+  log_workout_generations: true
+  log_a2a_communications: true
+
+# Performance Settings
+performance:
+  max_concurrent_requests: 50
+  request_timeout: 60
+  health_check_interval: 30
+  
+  # Caching settings
+  cache_workout_programs: true
+  cache_health_analysis: true
+  cache_ttl: 1800  # 30 minutes
+
+# Security Settings
+security:
+  encrypt_health_data: true
+  require_auth_for_sensitive_data: true
+  data_retention_policy: "1_year"
+  anonymize_exported_data: true
+  
+  # Rate limiting
+  rate_limit_per_minute: 60
+  rate_limit_per_hour: 1000
+
+# Development Settings
+development:
+  debug_mode: false
+  mock_external_apis: false
+  enable_test_endpoints: false
+  log_performance_metrics: true
+
+# Monitoring & Alerts
+monitoring:
+  health_check_endpoint: "/health"
+  metrics_endpoint: "/metrics"
+  
+  alerts:
+    high_error_rate_threshold: 0.05  # 5%
+    slow_response_threshold: 2000    # 2 seconds
+    memory_usage_threshold: 0.85     # 85%
+    
+  prometheus:
+    enabled: true
+    port: 9091
+    metrics_path: "/metrics"

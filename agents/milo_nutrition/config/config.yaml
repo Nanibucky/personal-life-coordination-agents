@@ -1,0 +1,259 @@
+# Agent Milo Configuration
+# Meal Planning & Nutrition Agent
+
+agent:
+  name: "milo"
+  port: 8003
+  description: "Meal Planning & Nutrition Optimization Agent"
+  version: "1.0.0"
+
+# AI Configuration
+ai:
+  model: "gpt-4"
+  temperature: 0.3
+  max_tokens: 2000
+  timeout: 30
+  system_prompt: |
+    You are Milo, an expert meal planning and nutrition optimization agent.
+    You excel at creating personalized meal plans, analyzing nutritional content,
+    and coordinating with other agents to ensure optimal nutrition timing.
+    You work collaboratively with Luna (health), Bucky (shopping), and Nani (scheduling)
+    to provide comprehensive nutrition support.
+
+# Tools Configuration
+tools:
+  recipe_engine:
+    enabled: true
+    cache_recipes: true
+    cache_duration: 3600  # 1 hour
+    max_recipes_per_search: 20
+    default_cuisine_preferences: ["mediterranean", "healthy", "quick"]
+    
+  nutrition_analyzer:
+    enabled: true
+    use_usda_database: true
+    daily_value_standards: "FDA_2016"
+    macro_targets:
+      protein_percent: 25
+      carb_percent: 45
+      fat_percent: 30
+    
+  meal_planner:
+    enabled: true
+    default_plan_duration: 7  # days
+    max_prep_time: 60  # minutes
+    budget_awareness: true
+    variety_optimization: true
+
+# External API Configuration
+external_apis:
+  spoonacular:
+    base_url: "https://api.spoonacular.com"
+    api_key: "${SPOONACULAR_API_KEY}"
+    rate_limit: 150  # requests per day
+    timeout: 10
+    
+  edamam:
+    base_url: "https://api.edamam.com"
+    app_id: "${EDAMAM_APP_ID}"
+    app_key: "${EDAMAM_APP_KEY}"
+    rate_limit: 1000  # requests per month
+    
+  usda_fdc:
+    base_url: "https://api.nal.usda.gov/fdc"
+    api_key: "${USDA_FDC_API_KEY}"
+    rate_limit: 1000  # requests per hour
+
+# Database Configuration
+database:
+  primary:
+    url: "${DATABASE_URL}"
+    pool_size: 5
+    max_overflow: 10
+    
+  cache:
+    url: "${REDIS_URL}"
+    ttl: 3600  # 1 hour default
+    max_connections: 10
+
+# A2A Communication
+a2a:
+  auth_required: true
+  timeout: 30  # seconds
+  retry_attempts: 3
+  retry_delay: 1  # seconds
+  
+  # Agents Milo communicates with
+  target_agents:
+    luna:
+      endpoint: "http://localhost:8004"
+      intents: ["nutrition_requirements", "fitness_goals"]
+      
+    bucky:
+      endpoint: "http://localhost:8002"
+      intents: ["pantry_inventory", "shopping_optimization"]
+      
+    nani:
+      endpoint: "http://localhost:8001"
+      intents: ["meal_prep_scheduling", "optimal_meal_times"]
+
+# Nutrition Standards
+nutrition:
+  daily_values:
+    calories: 2000
+    protein: 50      # grams
+    carbs: 300       # grams
+    fat: 65          # grams
+    fiber: 25        # grams
+    sodium: 2300     # mg
+    sugar: 50        # grams
+    
+  vitamins:
+    vitamin_a: 900   # mcg
+    vitamin_c: 90    # mg
+    vitamin_d: 20    # mcg
+    vitamin_e: 15    # mg
+    vitamin_k: 120   # mcg
+    thiamine: 1.2    # mg
+    riboflavin: 1.3  # mg
+    niacin: 16       # mg
+    vitamin_b6: 1.7  # mg
+    folate: 400      # mcg
+    vitamin_b12: 2.4 # mcg
+    
+  minerals:
+    calcium: 1000    # mg
+    iron: 18         # mg
+    magnesium: 420   # mg
+    phosphorus: 1250 # mg
+    potassium: 4700  # mg
+    zinc: 11         # mg
+
+# Meal Planning Defaults
+meal_planning:
+  default_meal_times:
+    breakfast: "07:00"
+    morning_snack: "10:00"
+    lunch: "12:30"
+    afternoon_snack: "15:30"
+    dinner: "18:30"
+    evening_snack: "20:00"
+    
+  portion_sizes:
+    adult_male: 1.0
+    adult_female: 0.8
+    teenager: 0.9
+    child: 0.6
+    
+  dietary_restrictions:
+    vegetarian:
+      exclude: ["beef", "chicken", "pork", "fish", "seafood"]
+      include_alternatives: true
+      
+    vegan:
+      exclude: ["beef", "chicken", "pork", "fish", "seafood", "dairy", "eggs", "honey"]
+      include_alternatives: true
+      
+    gluten_free:
+      exclude: ["wheat", "barley", "rye", "pasta", "bread"]
+      substitute_grains: ["quinoa", "rice", "oats"]
+      
+    dairy_free:
+      exclude: ["milk", "cheese", "yogurt", "butter", "cream"]
+      substitute_dairy: ["almond_milk", "coconut_milk", "cashew_cheese"]
+      
+    low_carb:
+      carb_limit: 50  # grams per day
+      exclude: ["bread", "pasta", "rice", "potatoes", "sugar"]
+      
+    keto:
+      carb_limit: 20  # grams per day
+      fat_target: 70  # percent of calories
+      exclude: ["bread", "pasta", "rice", "fruits", "sugar", "grains"]
+
+# Recipe Preferences
+recipes:
+  difficulty_levels:
+    beginner: 
+      max_prep_time: 20
+      max_cook_time: 30
+      simple_techniques: true
+      
+    intermediate:
+      max_prep_time: 45
+      max_cook_time: 60
+      moderate_techniques: true
+      
+    advanced:
+      max_prep_time: 90
+      max_cook_time: 120
+      complex_techniques: true
+      
+  cuisine_categories:
+    - mediterranean
+    - asian
+    - mexican
+    - indian
+    - italian
+    - american
+    - middle_eastern
+    - healthy
+    - comfort_food
+    - quick_meals
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/milo.log"
+  max_file_size: "10MB"
+  backup_count: 5
+  
+  loggers:
+    recipe_engine: "DEBUG"
+    nutrition_analyzer: "INFO"
+    meal_planner: "INFO"
+    a2a_communication: "INFO"
+
+# Performance Configuration
+performance:
+  max_concurrent_requests: 50
+  request_timeout: 30
+  cache_size: 1000
+  enable_compression: true
+  
+  rate_limiting:
+    requests_per_minute: 60
+    burst_limit: 10
+
+# Feature Flags
+features:
+  enable_ai_meal_suggestions: true
+  enable_nutritional_optimization: true
+  enable_cost_optimization: true
+  enable_prep_time_optimization: true
+  enable_seasonal_suggestions: true
+  enable_family_meal_scaling: true
+  enable_leftover_utilization: true
+  enable_grocery_integration: true
+
+# Health & Safety
+health_safety:
+  allergen_warnings: true
+  food_safety_reminders: true
+  expiration_date_tracking: true
+  cross_contamination_alerts: true
+  
+  common_allergens:
+    - milk
+    - eggs
+    - fish
+    - shellfish
+    - tree_nuts
+    - peanuts
+    - wheat
+    - soybeans
+
+# Environment
+environment: "${ENVIRONMENT:-development}"
+debug: "${DEBUG:-false}"
