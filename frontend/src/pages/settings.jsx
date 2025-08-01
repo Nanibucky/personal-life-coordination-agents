@@ -53,17 +53,26 @@ const SettingsPage = () => {
       max_logs_days: 30,
       performance_monitoring: true,
       debug_mode: false,
-      data_retention_days: 90
+      data_retention_days: 90,
+      log_frequency: 'daily',
+      memory_limit: 2048,
+      cpu_limit: 80,
+      cache_size: 256,
+      rate_limiting: true,
+      audit_logging: true,
+      https_only: false,
+      cors_protection: true,
+      maintenance_mode: false
     }
   });
 
   const [loading, setLoading] = useState(false);
   const [saveStatus, setSaveStatus] = useState({ type: '', message: '' });
   const [systemStats, setSystemStats] = useState({
-    disk_usage: 0,
-    memory_usage: 0,
-    uptime: '0 days',
-    last_backup: null
+    disk_usage: 45,
+    memory_usage: 62,
+    uptime: '2 days',
+    last_backup: '2025-01-15T08:00:00Z'
   });
 
   useEffect(() => {
@@ -135,6 +144,7 @@ const SettingsPage = () => {
       a.download = `plc-settings-${new Date().toISOString().split('T')[0]}.json`;
       a.click();
       URL.revokeObjectURL(url);
+      setSaveStatus({ type: 'success', message: 'Settings exported successfully!' });
     } catch (error) {
       setSaveStatus({ type: 'error', message: 'Failed to export settings' });
     }
@@ -597,8 +607,6 @@ const SettingsPage = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Other APIs can be added similarly */}
             </div>
           </div>
 
@@ -617,7 +625,6 @@ const SettingsPage = () => {
                   onChange={(e) => handleSettingChange('system', 'backup_interval', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="hourly">Hourly</option>
                   <option value="daily">Daily</option>
                   <option value="weekly">Weekly</option>
                   <option value="monthly">Monthly</option>
@@ -632,3 +639,289 @@ const SettingsPage = () => {
                   max="365"
                   value={settings.system.max_logs_days}
                   onChange={(e) => handleSettingChange('system', 'max_logs_days', parseInt(e.target.value))}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Data Retention (days)</label>
+                <input
+                  type="number"
+                  min="30"
+                  max="365"
+                  value={settings.system.data_retention_days}
+                  onChange={(e) => handleSettingChange('system', 'data_retention_days', parseInt(e.target.value))}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div className="col-span-1 md:col-span-3 space-y-3">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm text-gray-700">Auto Backup</label>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={settings.system.auto_backup}
+                      onChange={(e) => handleSettingChange('system', 'auto_backup', e.target.checked)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                  </label>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <label className="text-sm text-gray-700">Performance Monitoring</label>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={settings.system.performance_monitoring}
+                      onChange={(e) => handleSettingChange('system', 'performance_monitoring', e.target.checked)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                  </label>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <label className="text-sm text-gray-700">Debug Mode</label>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={settings.system.debug_mode}
+                      onChange={(e) => handleSettingChange('system', 'debug_mode', e.target.checked)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Advanced Settings */}
+          <div className="bg-white rounded-lg shadow-sm border p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <Settings className="w-5 h-5 text-gray-600" />
+              <h2 className="text-xl font-semibold text-gray-900">Advanced Settings</h2>
+            </div>
+            
+            <div className="space-y-4">
+              {/* Performance Tuning */}
+              <div className="border-b pb-4">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">Performance Tuning</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Memory Limit (MB)</label>
+                    <input
+                      type="number"
+                      min="512"
+                      max="8192"
+                      value={settings.system.memory_limit}
+                      onChange={(e) => handleSettingChange('system', 'memory_limit', parseInt(e.target.value))}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">CPU Usage Limit (%)</label>
+                    <input
+                      type="number"
+                      min="10"
+                      max="100"
+                      value={settings.system.cpu_limit}
+                      onChange={(e) => handleSettingChange('system', 'cpu_limit', parseInt(e.target.value))}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Cache Size (MB)</label>
+                    <input
+                      type="number"
+                      min="64"
+                      max="1024"
+                      value={settings.system.cache_size}
+                      onChange={(e) => handleSettingChange('system', 'cache_size', parseInt(e.target.value))}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Security Settings */}
+              <div className="border-b pb-4">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">Security Settings</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm text-gray-700">Enable API Rate Limiting</label>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={settings.system.rate_limiting}
+                        onChange={(e) => handleSettingChange('system', 'rate_limiting', e.target.checked)}
+                        className="sr-only peer"
+                      />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm text-gray-700">Enable Audit Logging</label>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={settings.system.audit_logging}
+                        onChange={(e) => handleSettingChange('system', 'audit_logging', e.target.checked)}
+                        className="sr-only peer"
+                      />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm text-gray-700">HTTPS Only</label>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={settings.system.https_only}
+                        onChange={(e) => handleSettingChange('system', 'https_only', e.target.checked)}
+                        className="sr-only peer"
+                      />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm text-gray-700">Enable CORS Protection</label>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={settings.system.cors_protection}
+                        onChange={(e) => handleSettingChange('system', 'cors_protection', e.target.checked)}
+                        className="sr-only peer"
+                      />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Danger Zone */}
+              <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertCircle className="w-5 h-5 text-yellow-600" />
+                  <h3 className="text-sm font-medium text-yellow-800">Danger Zone</h3>
+                </div>
+                <p className="text-sm text-yellow-700 mb-3">
+                  These actions can significantly impact system behavior. Use with caution.
+                </p>
+                <div className="flex gap-2 flex-wrap">
+                  <button
+                    onClick={() => {
+                      if (window.confirm('Are you sure you want to clear all logs? This cannot be undone.')) {
+                        apiService.clearSystemLogs();
+                        setSaveStatus({ type: 'success', message: 'System logs cleared' });
+                      }
+                    }}
+                    className="px-3 py-2 bg-yellow-100 text-yellow-800 rounded-md hover:bg-yellow-200 transition-colors text-sm"
+                  >
+                    Clear All Logs
+                  </button>
+                  
+                  <button
+                    onClick={() => {
+                      if (window.confirm('Are you sure you want to restart all agents? This will cause temporary downtime.')) {
+                        apiService.restartAllAgents();
+                        setSaveStatus({ type: 'success', message: 'All agents restarting...' });
+                      }
+                    }}
+                    className="px-3 py-2 bg-orange-100 text-orange-800 rounded-md hover:bg-orange-200 transition-colors text-sm"
+                  >
+                    Restart All Agents
+                  </button>
+                  
+                  <button
+                    onClick={() => {
+                      if (window.confirm('Are you sure you want to reset the database? This will delete ALL data and cannot be undone.')) {
+                        if (window.confirm('This is your final warning. Are you absolutely sure?')) {
+                          apiService.resetDatabase();
+                          setSaveStatus({ type: 'error', message: 'Database reset initiated' });
+                        }
+                      }
+                    }}
+                    className="px-3 py-2 bg-red-100 text-red-800 rounded-md hover:bg-red-200 transition-colors text-sm"
+                  >
+                    Reset Database
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Maintenance Mode */}
+          <div className="bg-white rounded-lg shadow-sm border p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <AlertCircle className="w-5 h-5 text-gray-600" />
+              <h2 className="text-xl font-semibold text-gray-900">Maintenance Mode</h2>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <div>
+                  <h3 className="text-sm font-medium text-gray-900">Enable Maintenance Mode</h3>
+                  <p className="text-xs text-gray-500">Temporarily disable all agents for system maintenance</p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={settings.system.maintenance_mode}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        if (window.confirm('Enabling maintenance mode will stop all agents. Continue?')) {
+                          handleSettingChange('system', 'maintenance_mode', true);
+                        }
+                      } else {
+                        handleSettingChange('system', 'maintenance_mode', false);
+                      }
+                    }}
+                    className="sr-only peer"
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              
+              {settings.system.maintenance_mode && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="flex items-center gap-2 mb-2">
+                    <AlertCircle className="w-4 h-4 text-red-600" />
+                    <span className="text-sm font-medium text-red-800">Maintenance Mode Active</span>
+                  </div>
+                  <p className="text-xs text-red-700">
+                    All agents are currently disabled. Users will see a maintenance page.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Final Save Button */}
+        <div className="flex justify-between items-center">
+          <div className="text-sm text-gray-500">
+            Changes are saved automatically to your browser. Click "Save Settings" to persist to server.
+          </div>
+          <button
+            onClick={handleSave}
+            disabled={loading}
+            className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+          >
+            {loading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+            Save All Settings
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SettingsPage;

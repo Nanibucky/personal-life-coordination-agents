@@ -1,4 +1,4 @@
-// Complete API service for communicating with the backend
+// Complete API service for communicating with the LangChain backend
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 class ApiService {
@@ -63,31 +63,14 @@ class ApiService {
     }
   }
 
-  // Get system metrics
-  async getSystemMetrics() {
+  // Get all agents status
+  async getAllAgentsStatus() {
     try {
-      return await this.request('/api/v1/metrics');
+      return await this.request('/agents');
     } catch (error) {
       return {
-        totalWorkflows: 0,
-        successRate: 0,
-        avgResponseTime: 0,
-        agentCoordinations: 0,
-        error: error.message
-      };
-    }
-  }
-
-  // Get system statistics
-  async getSystemStats() {
-    try {
-      return await this.request('/api/v1/system/stats');
-    } catch (error) {
-      return {
-        disk_usage: 0,
-        memory_usage: 0,
-        uptime: '0 days',
-        last_backup: null,
+        agents: {},
+        total_agents: 0,
         error: error.message
       };
     }
@@ -97,136 +80,35 @@ class ApiService {
   // AGENT APIs
   // ============================================================================
 
-  // Get specific agent status
-  async getAgentStatus(agentName) {
+  // Chat directly with a specific agent
+  async chatWithAgent(agentName, message, context = null) {
     try {
-      return await this.request(`/api/v1/agents/${agentName}/status`);
-    } catch (error) {
-      // Fallback: try direct agent connection
-      return await this.getAgentStatusDirect(agentName);
-    }
-  }
-
-  // Get agent status directly from agent
-  async getAgentStatusDirect(agentName) {
-    const agentPorts = {
-      nani: 8001,
-      luna: 8004,
-      bucky: 8002,
-      milo: 8003
-    };
-    
-    const port = agentPorts[agentName];
-    if (!port) {
-      throw new Error(`Unknown agent: ${agentName}`);
-    }
-
-    try {
-      return await this.request(`http://localhost:${port}/health`);
-    } catch (error) {
-      return {
-        status: 'offline',
-        agent: agentName,
-        error: error.message,
-        timestamp: new Date().toISOString()
-      };
-    }
-  }
-
-  // Get all agents status
-  async getAllAgentsStatus() {
-    const agents = ['nani', 'luna', 'bucky', 'milo'];
-    const statusPromises = agents.map(agent => 
-      this.getAgentStatus(agent).catch(error => ({
-        agent,
-        status: 'error',
-        error: error.message
-      }))
-    );
-    
-    const results = await Promise.all(statusPromises);
-    
-    // Convert array to object
-    const agentStatuses = {};
-    results.forEach((result, index) => {
-      agentStatuses[agents[index]] = result;
-    });
-    
-    return agentStatuses;
-  }
-
-  // Get agent tools
-  async getAgentTools(agentName) {
-    const agentPorts = {
-      nani: 8001,
-      luna: 8004,
-      bucky: 8002,
-      milo: 8003
-    };
-    
-    const port = agentPorts[agentName];
-    if (!port) {
-      throw new Error(`Unknown agent: ${agentName}`);
-    }
-
-    try {
-      return await this.request(`http://localhost:${port}/tools`);
-    } catch (error) {
-      // Return mock tools for demo
-      return {
-        tools: [
-          {
-            name: 'mock_tool',
-            description: `Mock tool for ${agentName} (agent offline)`,
-            parameters: { 
-              type: 'object', 
-              properties: { 
-                action: { type: 'string', enum: ['test', 'demo'] } 
-              } 
-            },
-            returns: { type: 'object' }
-          }
-        ]
-      };
-    }
-  }
-
-  // Execute agent tool
-  async executeAgentTool(agentName, toolName, parameters) {
-    const agentPorts = {
-      nani: 8001,
-      luna: 8004,
-      bucky: 8002,
-      milo: 8003
-    };
-    
-    const port = agentPorts[agentName];
-    if (!port) {
-      throw new Error(`Unknown agent: ${agentName}`);
-    }
-
-    try {
-      return await this.request(`http://localhost:${port}/execute/${toolName}`, {
+      const response = await this.request(`/agents/${agentName}/chat`, {
         method: 'POST',
         body: JSON.stringify({
-          parameters,
-          context: {
-            user_id: 'demo_user',
-            session_id: `session_${Date.now()}`,
-            permissions: ['read', 'write'],
-            timestamp: new Date().toISOString()
-          }
-        }),
+          agent_name: agentName,
+          message: message,
+          context: context
+        })
       });
+      return response;
     } catch (error) {
-      // Return mock response for demo
       return {
-        success: false,
-        error: `Agent ${agentName} offline: ${error.message}`,
-        result: null,
-        execution_time: 0,
-        mock: true
+        agent_name: agentName,
+        response: `Error: ${error.message}`,
+        tools_used: [],
+        execution_time: 0
       };
+    }
+  }
+
+  // Get specific agent status
+  async getAgentStatusDirect(agentName) {
+    try {
+      const allAgents = await this.getAllAgentsStatus();
+      return allAgents.agents[agentName] || { error: 'Agent not found' };
+    } catch (error) {
+      return { error: error.message };
     }
   }
 
@@ -234,24 +116,20 @@ class ApiService {
   // WORKFLOW APIs
   // ============================================================================
 
-  // Execute workflow
+  // Execute a workflow
   async executeWorkflow(workflowData) {
     try {
-      return await this.request('/api/v1/workflow', {
+      return await this.request('/workflow', {
         method: 'POST',
-        body: JSON.stringify({
-          ...workflowData,
-          timestamp: new Date().toISOString(),
-          user_id: 'demo_user'
-        }),
+        body: JSON.stringify(workflowData)
       });
     } catch (error) {
-      // Return mock workflow for demo
       return {
         workflow_id: `wf_${Date.now()}`,
-        status: 'initiated',
-        message: `Workflow started (mock): ${error.message}`,
-        mock: true
+        status: 'failed',
+        message: `Error: ${error.message}`,
+        agents_involved: [],
+        estimated_duration: 0
       };
     }
   }
@@ -259,54 +137,108 @@ class ApiService {
   // Get workflow status
   async getWorkflowStatus(workflowId) {
     try {
-      return await this.request(`/api/v1/workflow/${workflowId}/status`);
+      return await this.request(`/workflows/${workflowId}`);
     } catch (error) {
-      return {
-        workflow_id: workflowId,
-        status: 'unknown',
-        error: error.message
-      };
+      return { error: error.message };
     }
   }
 
   // Get all workflows
   async getAllWorkflows() {
     try {
-      return await this.request('/api/v1/workflows');
+      return await this.request('/workflows');
     } catch (error) {
       return {
-        workflows: [],
-        error: error.message
-      };
-    }
-  }
-
-  // Cancel workflow
-  async cancelWorkflow(workflowId) {
-    try {
-      return await this.request(`/api/v1/workflow/${workflowId}/cancel`, {
-        method: 'POST'
-      });
-    } catch (error) {
-      return {
-        success: false,
+        active_workflows: {},
+        total_count: 0,
         error: error.message
       };
     }
   }
 
   // ============================================================================
-  // SETTINGS APIs
+  // A2A COMMUNICATION APIs
+  // ============================================================================
+
+  // Send A2A message
+  async sendA2AMessage(fromAgent, toAgent, intent, payload) {
+    try {
+      return await this.request('/a2a/message', {
+        method: 'POST',
+        body: JSON.stringify({
+          from_agent: fromAgent,
+          to_agent: toAgent,
+          intent: intent,
+          payload: payload,
+          session_id: `session_${Date.now()}`
+        })
+      });
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+        message_id: null
+      };
+    }
+  }
+
+  // Broadcast A2A message
+  async broadcastA2AMessage(fromAgent, intent, payload) {
+    try {
+      return await this.request('/a2a/broadcast', {
+        method: 'POST',
+        body: JSON.stringify({
+          from_agent: fromAgent,
+          intent: intent,
+          payload: payload,
+          session_id: `session_${Date.now()}`
+        })
+      });
+    } catch (error) {
+      return {
+        responses: [],
+        total_agents: 0,
+        error: error.message
+      };
+    }
+  }
+
+  // Get A2A message history
+  async getA2ACommunications(limit = 50) {
+    try {
+      return await this.request(`/a2a/history?limit=${limit}`);
+    } catch (error) {
+      return {
+        messages: [],
+        total_messages: 0,
+        error: error.message
+      };
+    }
+  }
+
+  // Clear A2A message history
+  async clearA2AHistory() {
+    try {
+      return await this.request('/a2a/history', {
+        method: 'DELETE'
+      });
+    } catch (error) {
+      return { error: error.message };
+    }
+  }
+
+  // ============================================================================
+  // SYSTEM MANAGEMENT APIs
   // ============================================================================
 
   // Get system settings
   async getSystemSettings() {
     try {
-      return await this.request('/api/v1/settings');
+      const response = await this.request('/api/v1/system/settings');
+      return response;
     } catch (error) {
-      // Return default settings structure
       return {
-        success: true,
+        success: false,
         settings: {
           general: {
             theme: 'light',
@@ -338,7 +270,9 @@ class ApiService {
             fitbit: false,
             fitbit_token: '',
             spoonacular: false,
-            spoonacular_key: ''
+            spoonacular_key: '',
+            kroger: false,
+            kroger_key: ''
           },
           system: {
             auto_backup: true,
@@ -348,7 +282,8 @@ class ApiService {
             debug_mode: false,
             data_retention_days: 90
           }
-        }
+        },
+        error: error.message
       };
     }
   }
@@ -356,215 +291,106 @@ class ApiService {
   // Save system settings
   async saveSystemSettings(settings) {
     try {
-      return await this.request('/api/v1/settings', {
-        method: 'POST',
-        body: JSON.stringify({
-          settings,
-          timestamp: new Date().toISOString()
-        })
+      const response = await this.request('/api/v1/system/settings', {
+        method: 'PUT',
+        body: JSON.stringify(settings)
       });
+      return response;
     } catch (error) {
-      // Mock successful save for demo
-      console.warn('Settings save failed, using local storage:', error.message);
-      localStorage.setItem('plc_settings', JSON.stringify(settings));
-      return {
-        success: true,
-        message: 'Settings saved locally (backend offline)'
-      };
+      return { success: false, error: error.message };
     }
   }
 
   // Reset system settings
   async resetSystemSettings() {
     try {
-      return await this.request('/api/v1/settings/reset', {
+      const response = await this.request('/api/v1/system/settings/reset', {
         method: 'POST'
       });
+      return response;
     } catch (error) {
-      return {
-        success: false,
-        error: error.message
-      };
+      return { success: false, error: error.message };
     }
   }
 
   // Test API connection
   async testAPIConnection(apiType, apiSettings) {
     try {
-      return await this.request('/api/v1/settings/test-connection', {
+      const response = await this.request('/api/v1/system/test-connection', {
         method: 'POST',
         body: JSON.stringify({
-          api_type: apiType,
+          type: apiType,
           settings: apiSettings
         })
       });
-    } catch (error) {
-      // Mock test for demo
-      const mockResults = {
-        openai: { success: false, error: 'OpenAI API key not configured' },
-        google_calendar: { success: false, error: 'Google Calendar not configured' },
-        fitbit: { success: false, error: 'Fitbit token not configured' }
-      };
-      
-      return mockResults[apiType] || { success: false, error: error.message };
-    }
-  }
-
-  // ============================================================================
-  // SYSTEM MANAGEMENT APIs
-  // ============================================================================
-
-  // Clear system logs
-  async clearSystemLogs() {
-    try {
-      return await this.request('/api/v1/system/logs/clear', {
-        method: 'POST'
-      });
+      return response;
     } catch (error) {
       return {
         success: false,
         error: error.message
       };
+    }
+  }
+
+  // Clear system logs
+  async clearSystemLogs() {
+    try {
+      const response = await this.request('/api/v1/system/logs/clear', {
+        method: 'DELETE'
+      });
+      return response;
+    } catch (error) {
+      return { success: false, error: error.message };
     }
   }
 
   // Restart all agents
   async restartAllAgents() {
     try {
-      return await this.request('/api/v1/agents/restart-all', {
+      const response = await this.request('/api/v1/system/restart-agents', {
         method: 'POST'
       });
+      return response;
     } catch (error) {
-      return {
-        success: false,
-        error: error.message
-      };
+      return { success: false, error: error.message };
     }
   }
 
   // Restart specific agent
   async restartAgent(agentName) {
     try {
-      return await this.request(`/api/v1/agents/${agentName}/restart`, {
+      const response = await this.request(`/api/v1/system/restart-agent/${agentName}`, {
         method: 'POST'
       });
+      return response;
     } catch (error) {
-      return {
-        success: false,
-        error: error.message
-      };
+      return { success: false, error: error.message };
     }
   }
 
-  // Reset database (dangerous operation)
+  // Reset database
   async resetDatabase() {
     try {
-      return await this.request('/api/v1/system/database/reset', {
-        method: 'POST',
-        headers: {
-          'X-Confirm-Reset': 'true'
-        }
+      const response = await this.request('/api/v1/system/reset-database', {
+        method: 'POST'
       });
+      return response;
     } catch (error) {
-      return {
-        success: false,
-        error: error.message
-      };
+      return { success: false, error: error.message };
     }
   }
 
-  // ============================================================================
-  // A2A COMMUNICATION APIs
-  // ============================================================================
-
-  // Send A2A message
-  async sendA2AMessage(fromAgent, toAgent, intent, payload) {
+  // Get system statistics
+  async getSystemStats() {
     try {
-      return await this.request('/api/v1/a2a/send', {
-        method: 'POST',
-        body: JSON.stringify({
-          from_agent: fromAgent,
-          to_agent: toAgent,
-          intent,
-          payload,
-          timestamp: new Date().toISOString(),
-          correlation_id: `corr_${Date.now()}`
-        })
-      });
+      const response = await this.request('/api/v1/system/stats');
+      return response;
     } catch (error) {
       return {
-        success: false,
-        error: error.message
-      };
-    }
-  }
-
-  // Get A2A communication history
-  async getA2ACommunications(limit = 50) {
-    try {
-      return await this.request(`/api/v1/a2a/history?limit=${limit}`);
-    } catch (error) {
-      return {
-        communications: [],
-        error: error.message
-      };
-    }
-  }
-
-  // ============================================================================
-  // MONITORING & ANALYTICS APIs
-  // ============================================================================
-
-  // Get performance metrics
-  async getPerformanceMetrics(timeRange = '24h') {
-    try {
-      return await this.request(`/api/v1/metrics/performance?range=${timeRange}`);
-    } catch (error) {
-      return {
-        metrics: [],
-        error: error.message
-      };
-    }
-  }
-
-  // Get system logs
-  async getSystemLogs(level = 'INFO', limit = 100) {
-    try {
-      return await this.request(`/api/v1/logs?level=${level}&limit=${limit}`);
-    } catch (error) {
-      return {
-        logs: [],
-        error: error.message
-      };
-    }
-  }
-
-  // Export data
-  async exportData(dataType = 'all') {
-    try {
-      const response = await fetch(`${this.baseURL}/api/v1/export/${dataType}`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
-      if (!response.ok) {
-        throw new Error(`Export failed: ${response.status}`);
-      }
-      
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `plc-export-${dataType}-${new Date().toISOString().split('T')[0]}.json`;
-      a.click();
-      window.URL.revokeObjectURL(url);
-      
-      return { success: true, message: 'Export completed' };
-    } catch (error) {
-      return {
-        success: false,
+        disk_usage: 0,
+        memory_usage: 0,
+        uptime: '0 days',
+        last_backup: null,
         error: error.message
       };
     }
@@ -574,11 +400,11 @@ class ApiService {
   // UTILITY METHODS
   // ============================================================================
 
-  // Check if backend is available
+  // Check backend availability
   async checkBackendAvailability() {
     try {
-      const response = await this.getSystemHealth();
-      return response.status === 'healthy';
+      const health = await this.getSystemHealth();
+      return health.status === 'healthy';
     } catch (error) {
       return false;
     }

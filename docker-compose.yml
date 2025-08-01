@@ -1,0 +1,182 @@
+version: '3.8'
+
+services:
+  # API Gateway
+  api-gateway:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/personal_life_coordination
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - agent-network
+
+  # Bucky - Shopping Agent
+  bucky:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.agent
+    environment:
+      - AGENT_NAME=bucky
+      - AGENT_PORT=8002
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/bucky
+    ports:
+      - "8002:8002"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    networks:
+      - agent-network
+
+  # Luna - Health Agent
+  luna:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.agent
+    environment:
+      - AGENT_NAME=luna
+      - AGENT_PORT=8003
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/luna
+    ports:
+      - "8003:8003"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    networks:
+      - agent-network
+
+  # Milo - Nutrition Agent
+  milo:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.agent
+    environment:
+      - AGENT_NAME=milo
+      - AGENT_PORT=8004
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/milo
+    ports:
+      - "8004:8004"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    networks:
+      - agent-network
+
+  # Nani - Scheduler Agent
+  nani:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.agent
+    environment:
+      - AGENT_NAME=nani
+      - AGENT_PORT=8005
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/nani
+    ports:
+      - "8005:8005"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    networks:
+      - agent-network
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../infrastructure/docker/Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - api-gateway
+    networks:
+      - agent-network
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=personal_life_coordination
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infrastructure/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - agent-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - agent-network
+
+  # Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./infrastructure/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - agent-network
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./infrastructure/monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./infrastructure/monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - prometheus
+    networks:
+      - agent-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  agent-network:
+    driver: bridge
