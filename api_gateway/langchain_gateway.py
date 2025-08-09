@@ -250,7 +250,7 @@ class LangChainAPIGateway:
         @self.app.delete("/a2a/history")
         async def clear_a2a_history():
             """Clear A2A message history"""
-            a2a_coordinator.clear_history()
+            await a2a_coordinator.clear_message_history()
             return {"message": "A2A history cleared successfully"}
         
         # System Settings Endpoints
