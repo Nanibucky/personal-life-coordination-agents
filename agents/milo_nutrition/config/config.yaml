@@ -9,9 +9,9 @@ agent:
 
 # AI Configuration
 ai:
-  model: "gpt-4"
+  model: "gpt-4o-mini"
   temperature: 0.3
-  max_tokens: 2000
+  max_tokens: 1000
   timeout: 30
   system_prompt: |
     You are Milo, an expert meal planning and nutrition optimization agent.

@@ -54,9 +54,9 @@ class LangChainBaseAgent:
     def _initialize_llm(self) -> ChatOpenAI:
         """Initialize the language model"""
         # Get LLM config from environment or config
-        model_name = self.config.get("llm", {}).get("model", "gpt-3.5-turbo")
+        model_name = self.config.get("llm", {}).get("model", "gpt-4o-mini")
         temperature = self.config.get("llm", {}).get("temperature", 0.1)
-        max_tokens = self.config.get("llm", {}).get("max_tokens", 1000)
+        max_tokens = self.config.get("llm", {}).get("max_tokens", 800)
         
         return ChatOpenAI(
             model=model_name,

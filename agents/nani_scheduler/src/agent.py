@@ -9,6 +9,7 @@ from typing import Dict, List, Optional, Any
 
 from shared.mcp_framework.base_server import BaseMCPServer, ExecutionContext
 from shared.a2a_protocol.message_router import A2AMessage
+from agents.master_coordinator.coordinator import UserMemory
 
 # Import Nani's tools
 from agents.nani_scheduler.tools.calendar_manager import CalendarManagerTool
@@ -22,13 +23,16 @@ class NaniAgent(BaseMCPServer):
     def __init__(self, config: Dict[str, Any]):
         super().__init__("nani", 8001, config)
         
+        # Initialize memory system
+        self.memory = UserMemory("nani_user_memory.json")
+        
         # Register all Nani's tools
         self.register_tool(CalendarManagerTool())
         self.register_tool(SchedulingOptimizerTool()) 
         self.register_tool(TimezoneHandlerTool())
         self.register_tool(FocusTimeBlockerTool())
         
-        self.logger.info("Agent Nani initialized with 4 tools")
+        self.logger.info("Agent Nani initialized with 4 tools and memory system")
     
     async def process_a2a_message(self, message_data: dict) -> Dict[str, Any]:
         """Process incoming A2A messages from other agents"""

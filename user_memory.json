@@ -1,0 +1,64 @@
+{
+  "user_profile": {
+    "name": "Varun"
+  },
+  "preferences": {},
+  "important_facts": [],
+  "conversation_context": [
+    {
+      "query": "My name is Tharun",
+      "response": "Nice to meet you, Tharun! I'll remember that. How can I help you today?",
+      "intent": "simple_conversation",
+      "timestamp": "2025-08-10T16:03:25.904988"
+    },
+    {
+      "query": "Hello",
+      "response": "Good to see you Tharun! I coordinate between your personal agents to help with fitness, nutrition, shopping, and scheduling. How can we assist you today?",
+      "intent": "greeting",
+      "timestamp": "2025-08-10T16:03:48.748497"
+    },
+    {
+      "query": "What time is it today?",
+      "response": "Today is Sunday, August 10, 2025, Tharun! The current time is 04:04 PM.",
+      "intent": "simple_conversation",
+      "timestamp": "2025-08-10T16:04:07.186255"
+    },
+    {
+      "query": "Hi there",
+      "response": "Hello Tharun! I'm your Personal Life Coordination system. I'm here to help you manage your meals, health, shopping, and scheduling through my specialized agents.",
+      "intent": "greeting",
+      "timestamp": "2025-08-10T16:07:29.153662"
+    },
+    {
+      "query": "My name is Varun",
+      "response": "Nice to meet you, Varun! I'll remember that. How can I help you today?",
+      "intent": "simple_conversation",
+      "timestamp": "2025-08-10T16:07:43.460419"
+    },
+    {
+      "query": "Whats my name",
+      "response": "I understand Varun! Is there anything specific you'd like help with regarding your meals, fitness, shopping, or schedule?",
+      "intent": "simple_conversation",
+      "timestamp": "2025-08-10T16:07:50.087508"
+    },
+    {
+      "query": "whats the date today",
+      "response": "Today is Sunday, August 10, 2025, Varun! The current time is 04:08 PM.",
+      "intent": "simple_conversation",
+      "timestamp": "2025-08-10T16:08:12.654115"
+    },
+    {
+      "query": "Hi buddy",
+      "response": "Good to see you Varun! I coordinate between your personal agents to help with fitness, nutrition, shopping, and scheduling. How can we assist you today?",
+      "intent": "greeting",
+      "timestamp": "2025-08-10T16:40:28.813699"
+    },
+    {
+      "query": "How are you and tell me a joke",
+      "response": "Hi there Varun! Your agents Milo (fitness), Luna (meals), Bucky (shopping), and Nani (scheduling) are all ready to help. What would you like to work on today?",
+      "intent": "greeting",
+      "timestamp": "2025-08-10T16:40:45.495412"
+    }
+  ],
+  "agent_interactions": {}
+}

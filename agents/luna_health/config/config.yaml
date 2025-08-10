@@ -9,9 +9,9 @@ agent:
 
 # AI Configuration
 ai:
-  model: "gpt-4"
+  model: "gpt-4o-mini"
   temperature: 0.3
-  max_tokens: 2000
+  max_tokens: 1000
   system_prompt: |
     You are Luna, an expert health and fitness optimization agent. 
     You excel at analyzing health data, creating personalized workout programs, and 

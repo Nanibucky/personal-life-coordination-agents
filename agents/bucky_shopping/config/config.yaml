@@ -9,9 +9,9 @@ agent:
 
 # AI Configuration
 ai:
-  model: "gpt-4"
+  model: "gpt-4o-mini"
   temperature: 0.25
-  max_tokens: 2000
+  max_tokens: 1000
   system_prompt_file: "prompts.yaml"
 
 # Tool Configuration

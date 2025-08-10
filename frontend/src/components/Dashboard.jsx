@@ -1,396 +1,551 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Heart, ShoppingCart, ChefHat, Activity, Clock, CheckCircle, AlertCircle, TrendingUp } from 'lucide-react';
+import { Send, Bell, Shield, MessageSquare, Users, Settings, Calendar, Heart, ShoppingCart, ChefHat, Wrench } from 'lucide-react';
+import apiService from '../services/api';
+import AgentManagement from './AgentManagement';
 
 const Dashboard = () => {
-  const [agents, setAgents] = useState({
-    nani: { status: 'healthy', lastUpdate: '2 minutes ago', tasks: 12 },
-    luna: { status: 'healthy', lastUpdate: '1 minute ago', tasks: 8 },
-    bucky: { status: 'healthy', lastUpdate: '30 seconds ago', tasks: 5 },
-    milo: { status: 'healthy', lastUpdate: '1 minute ago', tasks: 3 }
-  });
-
-  const [workflows, setWorkflows] = useState([
+  const [currentView, setCurrentView] = useState('dashboard');
+  const [query, setQuery] = useState('');
+  const [messages, setMessages] = useState([
     {
-      id: 'wf_001',
-      name: 'Weekly Meal Planning',
-      status: 'completed',
-      progress: 100,
-      agents: ['milo', 'bucky', 'nani'],
-      completedAt: '2025-07-23T10:30:00Z'
-    },
-    {
-      id: 'wf_002', 
-      name: 'Fitness Schedule Optimization',
-      status: 'running',
-      progress: 75,
-      agents: ['luna', 'nani'],
-      estimatedCompletion: '2025-07-23T11:15:00Z'
+      id: 1,
+      type: 'system',
+      content: 'Welcome to your Personal Life Coordination System! Your agents are ready to help with meals, health, shopping, and scheduling. Try asking something like "What should I eat for dinner?" or "Help me plan my week".',
+      timestamp: new Date().toISOString()
     }
   ]);
 
-  const [systemMetrics, setSystemMetrics] = useState({
-    totalWorkflows: 24,
-    successRate: 96.8,
-    avgResponseTime: 1.2,
-    agentCoordinations: 156
-  });
-
-  const agentInfo = {
-    nani: { 
-      name: 'Nani', 
-      role: 'Scheduler & Calendar', 
-      icon: Calendar, 
-      color: 'bg-blue-500',
-      description: 'Optimizes your schedule and manages calendar events'
-    },
-    luna: { 
-      name: 'Luna', 
-      role: 'Health & Fitness', 
-      icon: Heart, 
-      color: 'bg-red-500',
-      description: 'Tracks health metrics and plans workouts'
-    },
-    bucky: { 
-      name: 'Bucky', 
-      role: 'Shopping & Inventory', 
-      icon: ShoppingCart, 
-      color: 'bg-green-500',
-      description: 'Manages pantry inventory and optimizes shopping'
-    },
-    milo: { 
-      name: 'Milo', 
-      role: 'Meal Planning', 
-      icon: ChefHat, 
-      color: 'bg-orange-500',
-      description: 'Creates meal plans and analyzes nutrition'
+  const [notifications, setNotifications] = useState([
+    {
+      id: 1,
+      type: 'external_request',
+      from: 'Agent X (John\'s Scheduler)',
+      message: 'Requesting meeting slot for "Project Discussion" - prefers afternoons this week',
+      status: 'pending',
+      timestamp: '5 minutes ago'
     }
+  ]);
+
+  const [a2aCommunications, setA2ACommunications] = useState([
+    {
+      id: 1,
+      from: 'milo',
+      to: 'bucky',
+      message: 'Need current pantry inventory for meal planning',
+      timestamp: '2 min ago',
+      status: 'completed'
+    },
+    {
+      id: 2,
+      from: 'bucky',
+      to: 'milo',
+      message: 'Pantry data sent: quinoa (2 cups), vegetables (mixed), olive oil available',
+      timestamp: '1 min ago',
+      status: 'completed'
+    },
+    {
+      id: 3,
+      from: 'Agent X',
+      to: 'nani',
+      message: 'External request: Meeting availability for project discussion',
+      timestamp: '5 min ago',
+      status: 'pending_approval'
+    }
+  ]);
+
+  const [externalAgentAccess] = useState([
+    {
+      id: 1,
+      agentName: 'Agent X',
+      owner: 'John Smith',
+      accessLevel: 'scheduling_only',
+      status: 'approved',
+      connectedTo: ['nani']
+    }
+  ]);
+
+  const [realAgents, setRealAgents] = useState({});
+  const [connectionStatus, setConnectionStatus] = useState('connecting');
+
+  const agents = {
+    milo: { name: 'Milo', role: 'Meal Planning', icon: ChefHat, color: 'text-orange-500' },
+    luna: { name: 'Luna', role: 'Health & Fitness', icon: Heart, color: 'text-red-500' },
+    bucky: { name: 'Bucky', role: 'Shopping & Inventory', icon: ShoppingCart, color: 'text-green-500' },
+    nani: { name: 'Nani', role: 'Scheduler & Calendar', icon: Calendar, color: 'text-blue-500' }
   };
 
-  const executeWorkflow = async (workflowType) => {
-    try {
-      const response = await fetch('http://localhost:8000/api/v1/workflow', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          type: workflowType,
-          fitness_goals: ['weight_loss', 'strength'],
-          dietary_preferences: ['vegetarian'],
-          user_id: 'demo_user'
-        })
-      });
-      
-      const result = await response.json();
-      
-      // Update workflows with new execution
-      const newWorkflow = {
-        id: result.workflow_id || `wf_${Date.now()}`,
-        name: workflowType === 'meal_planning' ? 'Meal Planning Workflow' : 'Fitness Scheduling',
-        status: 'running',
-        progress: 0,
-        agents: workflowType === 'meal_planning' ? ['milo', 'bucky', 'nani', 'luna'] : ['luna', 'nani'],
-        startedAt: new Date().toISOString()
-      };
-      
-      setWorkflows(prev => [newWorkflow, ...prev]);
-    } catch (error) {
-      console.error('Workflow execution failed:', error);
-      
-      // Still add workflow for demo purposes
-      const newWorkflow = {
-        id: `wf_${Date.now()}`,
-        name: workflowType === 'meal_planning' ? 'Meal Planning Workflow' : 'Fitness Scheduling',
-        status: 'running',
-        progress: 0,
-        agents: workflowType === 'meal_planning' ? ['milo', 'bucky', 'nani', 'luna'] : ['luna', 'nani'],
-        startedAt: new Date().toISOString()
-      };
-      
-      setWorkflows(prev => [newWorkflow, ...prev]);
-    }
-  };
-
+  // Fetch real agent status
   useEffect(() => {
-    // Simulate real-time updates
-    const interval = setInterval(() => {
-      setWorkflows(prev => prev.map(wf => {
-        if (wf.status === 'running' && wf.progress < 100) {
-          const newProgress = Math.min(wf.progress + Math.random() * 15, 100);
-          return {
-            ...wf,
-            progress: newProgress,
-            status: newProgress === 100 ? 'completed' : 'running'
-          };
+    const fetchAgentStatus = async () => {
+      try {
+        const response = await apiService.getAllAgentsStatus();
+        if (response.agents) {
+          setRealAgents(response.agents);
+          setConnectionStatus('connected');
         }
-        return wf;
-      }));
+      } catch (error) {
+        console.error('Failed to fetch agent status:', error);
+        setConnectionStatus('disconnected');
+      }
+    };
 
-      // Update system metrics
-      setSystemMetrics(prev => ({
-        ...prev,
-        agentCoordinations: prev.agentCoordinations + Math.floor(Math.random() * 3)
-      }));
-    }, 2000);
-
+    fetchAgentStatus();
+    
+    // Poll every 10 seconds for updates
+    const interval = setInterval(fetchAgentStatus, 10000);
     return () => clearInterval(interval);
   }, []);
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case 'healthy': return 'text-green-500';
-      case 'running': return 'text-blue-500';
-      case 'completed': return 'text-green-500';
-      case 'failed': return 'text-red-500';
-      default: return 'text-gray-500';
+  const handleSendQuery = async () => {
+    if (!query.trim()) return;
+    
+    const newMessage = {
+      id: messages.length + 1,
+      type: 'user',
+      content: query,
+      timestamp: new Date().toISOString()
+    };
+    
+    setMessages(prev => [...prev, newMessage]);
+    const currentQuery = query;
+    setQuery('');
+    
+    // Add intelligent analysis message
+    const analysisMessage = {
+      id: messages.length + 2,
+      type: 'system',
+      content: '🧠 Master Coordinator analyzing your query...',
+      timestamp: new Date().toISOString()
+    };
+    setMessages(prev => [...prev, analysisMessage]);
+    
+    try {
+      // Send workflow request to backend with Master Coordinator
+      const workflowResponse = await apiService.executeWorkflow({
+        type: 'general_query',
+        user_id: 'frontend_user',
+        query: currentQuery,
+        timestamp: new Date().toISOString()
+      });
+      
+      if (workflowResponse.workflow_id) {
+        // Poll for workflow completion
+        let attempts = 0;
+        const maxAttempts = 10;
+        
+        const pollWorkflow = async () => {
+          try {
+            const statusResponse = await apiService.getWorkflowStatus(workflowResponse.workflow_id);
+            
+            if (statusResponse.status === 'completed' && statusResponse.result) {
+              const agentResponse = {
+                id: messages.length + 3,
+                type: 'agent',
+                agent: statusResponse.primary_agent || 'master_coordinator',
+                content: statusResponse.result || 'Task completed successfully!',
+                timestamp: new Date().toISOString()
+              };
+              setMessages(prev => [...prev, agentResponse]);
+            } else if (statusResponse.status === 'failed') {
+              const errorResponse = {
+                id: messages.length + 3,
+                type: 'agent',
+                agent: 'system',
+                content: `I'm having trouble processing your request right now. Please try again or be more specific about what you need help with.`,
+                timestamp: new Date().toISOString()
+              };
+              setMessages(prev => [...prev, errorResponse]);
+            } else if (attempts < maxAttempts) {
+              attempts++;
+              setTimeout(pollWorkflow, 2000);
+            } else {
+              // Timeout - show simple message
+              const timeoutMessage = {
+                id: messages.length + 3,
+                type: 'system',
+                content: 'Request timed out. Please try again with a more specific question.',
+                timestamp: new Date().toISOString()
+              };
+              setMessages(prev => [...prev, timeoutMessage]);
+            }
+          } catch (error) {
+            console.error('Workflow polling error:', error);
+            const errorMessage = {
+              id: messages.length + 3,
+              type: 'system',
+              content: 'Connection issue. Please try again.',
+              timestamp: new Date().toISOString()
+            };
+            setMessages(prev => [...prev, errorMessage]);
+          }
+        };
+        
+        setTimeout(pollWorkflow, 1000);
+      } else {
+        const noWorkflowMessage = {
+          id: messages.length + 3,
+          type: 'system',
+          content: 'Unable to process request. Please try again.',
+          timestamp: new Date().toISOString()
+        };
+        setMessages(prev => [...prev, noWorkflowMessage]);
+      }
+      
+    } catch (error) {
+      console.error('Query execution error:', error);
+      const connectionErrorMessage = {
+        id: messages.length + 3,
+        type: 'system', 
+        content: 'Connection error. Please check if the backend is running.',
+        timestamp: new Date().toISOString()
+      };
+      setMessages(prev => [...prev, connectionErrorMessage]);
+    }
+  };
+  
+  const tryDirectAgentCommunication = async (queryText) => {
+    try {
+      // Try to communicate directly with an appropriate agent
+      let targetAgent = 'milo'; // Default to Milo for general queries
+      
+      // Simple intent detection (corrected for actual tool mappings)
+      if (queryText.toLowerCase().includes('meal') || queryText.toLowerCase().includes('food') || queryText.toLowerCase().includes('recipe')) {
+        targetAgent = 'luna'; // Luna actually has meal planning tools
+      } else if (queryText.toLowerCase().includes('schedule') || queryText.toLowerCase().includes('calendar') || queryText.toLowerCase().includes('meeting')) {
+        targetAgent = 'nani'; // Nani is unreachable, fallback to bucky
+        if (connectionStatus === 'connected') {
+          targetAgent = 'bucky'; // Use bucky as fallback since nani is down
+        }
+      } else if (queryText.toLowerCase().includes('health') || queryText.toLowerCase().includes('fitness') || queryText.toLowerCase().includes('workout')) {
+        targetAgent = 'milo'; // Milo actually has fitness tools
+      } else if (queryText.toLowerCase().includes('shopping') || queryText.toLowerCase().includes('buy') || queryText.toLowerCase().includes('store')) {
+        targetAgent = 'bucky';
+      }
+      
+      // Use workflow instead of direct chat since that endpoint doesn't exist
+      const workflowResponse = await apiService.executeWorkflow({
+        type: `${targetAgent}_query`,
+        user_id: 'frontend_user',
+        query: queryText,
+        target_agent: targetAgent
+      });
+      
+      // Get agent info for better response
+      const agentInfo = agents[targetAgent];
+      const agentCount = Object.values(realAgents).filter(a => a.status === 'healthy').length;
+      
+      const responseMessage = {
+        id: Date.now(),
+        type: 'agent',
+        agent: targetAgent,
+        content: `✅ **${agentInfo.name}** (${agentInfo.role}) received your query: "${queryText}"\n\n🔄 **Status**: Workflow ${workflowResponse.workflow_id} created and ${workflowResponse.status}\n💰 **Model**: Using cost-efficient GPT-4o-mini\n🤖 **System**: ${agentCount}/4 agents healthy and ready\n\n*Note: The A2A communication system is working! Some workflow orchestration features are still being configured, but your agents are successfully receiving and processing messages.*`,
+        timestamp: new Date().toISOString()
+      };
+      
+      setMessages(prev => [...prev, responseMessage]);
+      
+    } catch (error) {
+      console.error('Direct agent communication error:', error);
+      
+      const fallbackMessage = {
+        id: Date.now(),
+        type: 'system',
+        content: `I'm having trouble connecting to the agents right now. Please make sure the backend is running on http://localhost:8000. Error: ${error.message}`,
+        timestamp: new Date().toISOString()
+      };
+      
+      setMessages(prev => [...prev, fallbackMessage]);
     }
   };
 
-  const getStatusIcon = (status) => {
-    switch (status) {
-      case 'healthy':
-      case 'completed': 
-        return <CheckCircle className="w-4 h-4" />;
-      case 'running': 
-        return <Activity className="w-4 h-4 animate-spin" />;
-      case 'failed': 
-        return <AlertCircle className="w-4 h-4" />;
-      default: 
-        return <Clock className="w-4 h-4" />;
-    }
+  const handleNotificationAction = (notificationId, action) => {
+    setNotifications(prev => prev.map(notif => 
+      notif.id === notificationId 
+        ? { ...notif, status: action }
+        : notif
+    ));
+
+    // Add A2A response communication
+    const responseMessage = {
+      id: a2aCommunications.length + 1,
+      from: 'nani',
+      to: 'Agent X',
+      message: action === 'approved' 
+        ? 'Meeting approved: Thursday 3PM - Project Discussion'
+        : 'Meeting declined. Alternative slots: Friday 2PM, Monday 4PM',
+      timestamp: 'now',
+      status: 'sent'
+    };
+    
+    setA2ACommunications(prev => [...prev, responseMessage]);
   };
+
+  if (currentView === 'agentManagement') {
+    return <AgentManagement />;
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen p-4 md:p-6">
       <div className="max-w-7xl mx-auto space-y-6">
+        
         {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-gray-900">Personal Life Coordination</h1>
-          <p className="text-lg text-gray-600">AI Agents Working Together for Optimal Life Management</p>
-        </div>
-
-        {/* System Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">Total Workflows</p>
-                <p className="text-2xl font-bold text-blue-600">{systemMetrics.totalWorkflows}</p>
-              </div>
-              <TrendingUp className="w-8 h-8 text-blue-500" />
-            </div>
-          </div>
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold gradient-text">Personal Life Coordination</h1>
+          <p className="text-white/80 mt-2">Agent-to-Agent Communication System</p>
           
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">Success Rate</p>
-                <p className="text-2xl font-bold text-green-600">{systemMetrics.successRate}%</p>
-              </div>
-              <CheckCircle className="w-8 h-8 text-green-500" />
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">Avg Response Time</p>
-                <p className="text-2xl font-bold text-orange-600">{systemMetrics.avgResponseTime}s</p>
-              </div>
-              <Clock className="w-8 h-8 text-orange-500" />
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">Agent Coordinations</p>
-                <p className="text-2xl font-bold text-purple-600">{systemMetrics.agentCoordinations}</p>
-              </div>
-              <Activity className="w-8 h-8 text-purple-500" />
-            </div>
-          </div>
-        </div>
-
-        {/* Agent Status Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {Object.entries(agentInfo).map(([key, agent]) => {
-            const Icon = agent.icon;
-            const status = agents[key];
-            
-            return (
-              <div key={key} className="bg-white rounded-lg shadow-sm border overflow-hidden">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`p-3 rounded-lg ${agent.color}`}>
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div className={`flex items-center gap-1 ${getStatusColor(status.status)}`}>
-                      {getStatusIcon(status.status)}
-                      <span className="text-sm font-medium capitalize">{status.status}</span>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{agent.name}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{agent.role}</p>
-                  <p className="text-xs text-gray-500 mb-4">{agent.description}</p>
-                  
-                  <div className="flex justify-between items-center text-xs text-gray-500">
-                    <span>Tasks: {status.tasks}</span>
-                    <span>Updated: {status.lastUpdate}</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Workflow Controls */}
-        <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Execute Workflows</h2>
-          <div className="flex gap-4 flex-wrap">
-            <button 
-              onClick={() => executeWorkflow('meal_planning')}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+          {/* Navigation */}
+          <div className="flex justify-center gap-4 mt-6">
+            <button
+              onClick={() => setCurrentView('dashboard')}
+              className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-all ${
+                currentView === 'dashboard' 
+                  ? 'bg-blue-500 text-white shadow-lg' 
+                  : 'bg-white/90 text-gray-700 hover:bg-white'
+              }`}
             >
-              <ChefHat className="w-4 h-4" />
-              Plan Weekly Meals
+              <MessageSquare className="w-4 h-4" />
+              Dashboard
             </button>
-            
-            <button 
-              onClick={() => executeWorkflow('fitness_scheduling')}
-              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2"
+            <button
+              onClick={() => setCurrentView('agentManagement')}
+              className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-all ${
+                currentView === 'agentManagement' 
+                  ? 'bg-blue-500 text-white shadow-lg' 
+                  : 'bg-white/90 text-gray-700 hover:bg-white'
+              }`}
             >
-              <Heart className="w-4 h-4" />
-              Optimize Fitness Schedule
-            </button>
-            
-            <button 
-              onClick={() => executeWorkflow('shopping_optimization')}
-              className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors flex items-center gap-2"
-            >
-              <ShoppingCart className="w-4 h-4" />
-              Optimize Shopping Routes
+              <Wrench className="w-4 h-4" />
+              Agent Management
             </button>
           </div>
         </div>
 
-        {/* Active Workflows */}
-        <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Active Workflows</h2>
-          <div className="space-y-4">
-            {workflows.map((workflow) => (
-              <div key={workflow.id} className="border rounded-lg p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className={`flex items-center gap-1 ${getStatusColor(workflow.status)}`}>
-                      {getStatusIcon(workflow.status)}
-                      <h3 className="font-medium text-gray-900">{workflow.name}</h3>
-                    </div>
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${
-                      workflow.status === 'completed' ? 'bg-green-100 text-green-800' :
-                      workflow.status === 'running' ? 'bg-blue-100 text-blue-800' :
-                      'bg-red-100 text-red-800'
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          {/* Main Query Interface */}
+          <div className="lg:col-span-2 space-y-6">
+            
+            {/* Chat Interface */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6">
+              <h2 className="text-xl font-semibold gradient-text mb-4 flex items-center gap-2">
+                <MessageSquare className="w-5 h-5" />
+                Ask Your Agents
+              </h2>
+              
+              {/* Messages */}
+              <div className="space-y-4 mb-4 h-96 overflow-y-auto">
+                {messages.map(message => (
+                  <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                      message.type === 'user' 
+                        ? 'bg-blue-500 text-white' 
+                        : message.type === 'system'
+                        ? 'bg-gray-100 text-gray-700 italic'
+                        : 'bg-gradient-to-r from-orange-400 to-orange-500 text-white'
                     }`}>
-                      {workflow.status}
-                    </span>
-                  </div>
-                  <span className="text-sm text-gray-500">
-                    {Math.round(workflow.progress)}% complete
-                  </span>
-                </div>
-                
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
-                  <div 
-                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${workflow.progress}%` }}
-                  ></div>
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-500">Agents involved:</span>
-                    {workflow.agents.map(agentKey => {
-                      const agent = agentInfo[agentKey];
-                      const Icon = agent.icon;
-                      return (
-                        <div key={agentKey} className={`p-1 rounded ${agent.color}`}>
-                          <Icon className="w-3 h-3 text-white" />
+                      {message.agent && (
+                        <div className="text-xs opacity-75 mb-1">
+                          {agents[message.agent]?.name}
                         </div>
-                      );
-                    })}
+                      )}
+                      <p className="text-sm">{message.content}</p>
+                      <div className="text-xs opacity-75 mt-1">
+                        {new Date(message.timestamp).toLocaleTimeString()}
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-xs text-gray-500">
-                    {workflow.completedAt ? 
-                      `Completed: ${new Date(workflow.completedAt).toLocaleTimeString()}` :
-                      workflow.estimatedCompletion ? 
-                        `ETA: ${new Date(workflow.estimatedCompletion).toLocaleTimeString()}` :
-                        `Started: ${new Date(workflow.startedAt).toLocaleTimeString()}`
-                    }
-                  </span>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+              
+              {/* Query Input */}
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleSendQuery()}
+                  placeholder="Ask about meals, schedule, health, shopping..."
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+                <button
+                  onClick={handleSendQuery}
+                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:shadow-lg transition-all"
+                >
+                  <Send className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
 
-        {/* A2A Communication Log */}
-        <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Agent Communications</h2>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1">
-                  <div className="p-1 rounded bg-orange-500">
-                    <ChefHat className="w-3 h-3 text-white" />
+            {/* Real-time A2A Communications */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6">
+              <h2 className="text-xl font-semibold gradient-text mb-4 flex items-center gap-2">
+                <Users className="w-5 h-5" />
+                Agent-to-Agent Communications
+              </h2>
+              <div className="space-y-3 max-h-64 overflow-y-auto">
+                {a2aCommunications.map(comm => (
+                  <div key={comm.id} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center gap-2 min-w-0 flex-1">
+                      <div className={`p-1 rounded ${agents[comm.from] ? agents[comm.from].color : 'text-purple-500'}`}>
+                        {agents[comm.from] ? React.createElement(agents[comm.from].icon, { className: "w-4 h-4" }) : <Users className="w-4 h-4" />}
+                      </div>
+                      <span className="text-sm font-medium">→</span>
+                      <div className={`p-1 rounded ${agents[comm.to] ? agents[comm.to].color : 'text-purple-500'}`}>
+                        {agents[comm.to] ? React.createElement(agents[comm.to].icon, { className: "w-4 h-4" }) : <Users className="w-4 h-4" />}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm text-gray-700 truncate">{comm.message}</p>
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          <span>{comm.timestamp}</span>
+                          <span className={`px-2 py-0.5 rounded-full ${
+                            comm.status === 'completed' ? 'bg-green-100 text-green-700' :
+                            comm.status === 'pending_approval' ? 'bg-yellow-100 text-yellow-700' :
+                            'bg-blue-100 text-blue-700'
+                          }`}>
+                            {comm.status}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-sm">→</span>
-                  <div className="p-1 rounded bg-green-500">
-                    <ShoppingCart className="w-3 h-3 text-white" />
-                  </div>
-                </div>
-                <span className="text-sm text-gray-700">Milo requested pantry inventory from Bucky</span>
+                ))}
               </div>
-              <span className="text-xs text-gray-500">2 min ago</span>
-            </div>
-            
-            <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1">
-                  <div className="p-1 rounded bg-red-500">
-                    <Heart className="w-3 h-3 text-white" />
-                  </div>
-                  <span className="text-sm">→</span>
-                  <div className="p-1 rounded bg-blue-500">
-                    <Calendar className="w-3 h-3 text-white" />
-                  </div>
-                </div>
-                <span className="text-sm text-gray-700">Luna provided optimal workout times to Nani</span>
-              </div>
-              <span className="text-xs text-gray-500">5 min ago</span>
-            </div>
-            
-            <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1">
-                  <div className="p-1 rounded bg-blue-500">
-                    <Calendar className="w-3 h-3 text-white" />
-                  </div>
-                  <span className="text-sm">→</span>
-                  <div className="p-1 rounded bg-green-500">
-                    <ShoppingCart className="w-3 h-3 text-white" />
-                  </div>
-                </div>
-                <span className="text-sm text-gray-700">Nani scheduled shopping trip optimization with Bucky</span>
-              </div>
-              <span className="text-xs text-gray-500">8 min ago</span>
             </div>
           </div>
-        </div>
 
-        {/* Footer */}
-        <div className="text-center text-sm text-gray-500">
-          <p>Personal Life Coordination Agents v1.0 - Powered by MCP & A2A Protocols</p>
+          {/* Sidebar */}
+          <div className="space-y-6">
+            
+            {/* Notifications */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6">
+              <h2 className="text-xl font-semibold gradient-text mb-4 flex items-center gap-2">
+                <Bell className="w-5 h-5" />
+                Notifications
+              </h2>
+              <div className="space-y-3">
+                {notifications.map(notif => (
+                  <div key={notif.id} className="p-3 border border-gray-200 rounded-lg">
+                    <div className="text-sm font-medium text-gray-900">{notif.from}</div>
+                    <p className="text-sm text-gray-600 mt-1">{notif.message}</p>
+                    <div className="text-xs text-gray-500 mt-2">{notif.timestamp}</div>
+                    
+                    {notif.status === 'pending' && (
+                      <div className="flex gap-2 mt-3">
+                        <button
+                          onClick={() => handleNotificationAction(notif.id, 'approved')}
+                          className="px-3 py-1 bg-green-500 text-white text-xs rounded hover:bg-green-600"
+                        >
+                          Approve
+                        </button>
+                        <button
+                          onClick={() => handleNotificationAction(notif.id, 'declined')}
+                          className="px-3 py-1 bg-red-500 text-white text-xs rounded hover:bg-red-600"
+                        >
+                          Decline
+                        </button>
+                      </div>
+                    )}
+                    
+                    {notif.status !== 'pending' && (
+                      <div className={`text-xs mt-2 px-2 py-1 rounded inline-block ${
+                        notif.status === 'approved' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                      }`}>
+                        {notif.status}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* External Agent Access Control */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6">
+              <h2 className="text-xl font-semibold gradient-text mb-4 flex items-center gap-2">
+                <Shield className="w-5 h-5" />
+                Access Control
+              </h2>
+              <div className="space-y-3">
+                {externalAgentAccess.map(agent => (
+                  <div key={agent.id} className="p-3 border border-gray-200 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-sm font-medium">{agent.agentName}</div>
+                        <div className="text-xs text-gray-500">Owner: {agent.owner}</div>
+                        <div className="text-xs text-gray-500">Access: {agent.accessLevel}</div>
+                      </div>
+                      <div className={`px-2 py-1 text-xs rounded ${
+                        agent.status === 'approved' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                      }`}>
+                        {agent.status}
+                      </div>
+                    </div>
+                    <div className="text-xs text-gray-500 mt-2">
+                      Connected to: {agent.connectedTo.join(', ')}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <button className="w-full mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all text-sm">
+                <Settings className="w-4 h-4 inline mr-2" />
+                Manage Access
+              </button>
+            </div>
+
+            {/* Agent Status */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6">
+              <h2 className="text-xl font-semibold gradient-text mb-4 flex items-center gap-2">
+                Your Agents
+                <div className={`w-2 h-2 rounded-full ${
+                  connectionStatus === 'connected' ? 'bg-green-500' : 
+                  connectionStatus === 'connecting' ? 'bg-yellow-500 animate-pulse' : 
+                  'bg-red-500'
+                }`}></div>
+              </h2>
+              <div className="space-y-3">
+                {Object.entries(agents).map(([key, agent]) => {
+                  const Icon = agent.icon;
+                  const realAgent = realAgents[key];
+                  const isHealthy = realAgent?.status === 'healthy';
+                  const toolCount = realAgent?.tools?.length || 0;
+                  
+                  return (
+                    <div key={key} className="flex items-center gap-3 p-2">
+                      <div className={`p-2 rounded ${agent.color}`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-medium">{agent.name}</div>
+                        <div className="text-xs text-gray-500">
+                          {agent.role} {toolCount > 0 && `• ${toolCount} tools`}
+                        </div>
+                        {realAgent?.last_heartbeat && (
+                          <div className="text-xs text-gray-400">
+                            Last seen: {new Date(realAgent.last_heartbeat).toLocaleTimeString()}
+                          </div>
+                        )}
+                      </div>
+                      <div className="ml-auto">
+                        <div className={`w-2 h-2 rounded-full ${
+                          isHealthy ? 'bg-green-500' : 
+                          realAgent?.status === 'unreachable' ? 'bg-red-500' : 
+                          'bg-gray-400'
+                        }`}></div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {connectionStatus === 'disconnected' && (
+                <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-sm text-red-700">
+                    ⚠️ Unable to connect to backend. Make sure agents are running on port 8000.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
