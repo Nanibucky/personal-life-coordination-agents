@@ -1,0 +1,29 @@
+{
+  "deal_finder": {
+    "groupon_api_key": "",
+    "honey_account": "",
+    "rakuten_api_key": "",
+    "ibotta_api_key": "",
+    "max_deals_per_search": 20
+  },
+  "price_comparator": {
+    "kroger_api_key": "",
+    "walmart_api_key": "",
+    "target_api_key": "",
+    "costco_api_key": "",
+    "whole_foods_api_key": "",
+    "price_threshold": 10
+  },
+  "shopping_optimizer": {
+    "openai_api_key": "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",
+    "preferred_stores": "Target, Whole Foods, Kroger",
+    "max_travel_distance": 15,
+    "budget_optimization": true
+  },
+  "pantry_tracker": {
+    "storage_type": "local",
+    "expiration_alerts": true,
+    "alert_days_before": 3,
+    "barcode_scanner_api": ""
+  }
+}

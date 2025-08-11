@@ -1,0 +1,29 @@
+{
+  "fitness_tracker": {
+    "fitbit_client_id": "22ABC123",
+    "fitbit_client_secret": "secret123",
+    "apple_health_enabled": true,
+    "garmin_api_key": "garmin123",
+    "strava_client_id": "strava456",
+    "strava_client_secret": "strava_secret",
+    "sync_frequency": "hourly"
+  },
+  "health_analyzer": {
+    "openai_api_key": "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",
+    "health_data_retention": 365,
+    "enable_ai_insights": true,
+    "privacy_mode": "balanced"
+  },
+  "workout_planner": {
+    "openai_api_key": "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",
+    "default_workout_duration": 45,
+    "fitness_level": "intermediate",
+    "preferred_workout_types": "strength, cardio, yoga"
+  },
+  "recovery_monitor": {
+    "track_sleep": true,
+    "track_hrv": true,
+    "track_stress": true,
+    "recovery_notifications": true
+  }
+}

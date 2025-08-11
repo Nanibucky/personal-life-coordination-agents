@@ -1,0 +1,23 @@
+{
+  "nutrition_analyzer": {
+    "openai_api_key": "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",
+    "usda_api_key": "DEMO_KEY",
+    "nutritionix_app_id": "12345abc",
+    "nutritionix_api_key": "nutrition_key_123",
+    "daily_calorie_target": 2200
+  },
+  "meal_planner": {
+    "openai_api_key": "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",
+    "spoonacular_api_key": "",
+    "dietary_restrictions": "",
+    "meal_prep_days": 7,
+    "budget_per_meal": 10
+  },
+  "recipe_engine": {
+    "openai_api_key": "sk-proj-mWbB69G6O3AX9E1F98suJsn53k2FEhk3aw2DSmzoKAR29I9wyIH6TwWFhQMivRXJpb2t7gA",
+    "recipe_api_key": "",
+    "cuisine_preferences": "",
+    "difficulty_level": "medium",
+    "cooking_time_limit": 60
+  }
+}

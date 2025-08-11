@@ -58,6 +58,12 @@
       "response": "Hi there Varun! Your agents Milo (fitness), Luna (meals), Bucky (shopping), and Nani (scheduling) are all ready to help. What would you like to work on today?",
       "intent": "greeting",
       "timestamp": "2025-08-10T16:40:45.495412"
+    },
+    {
+      "query": "hi are there any calls today",
+      "response": "Good to see you Varun! I coordinate between your personal agents to help with fitness, nutrition, shopping, and scheduling. How can we assist you today?",
+      "intent": "greeting",
+      "timestamp": "2025-08-10T20:43:31.200201"
     }
   ],
   "agent_interactions": {}

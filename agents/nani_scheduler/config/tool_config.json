@@ -1,0 +1,29 @@
+{
+  "calendar_manager": {
+    "google_client_id": "162356676608-79dcp2841e6tndjjbn1373bq1tv0p3ud.apps.googleusercontent.com",
+    "google_client_secret": "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",
+    "redirect_uri": "http://localhost:8000/auth/google/callback",
+    "user_email": "pyayalat@gmail.com"
+  },
+  "scheduling_optimizer": {
+    "openai_api_key": "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",
+    "optimization_algorithm": "genetic",
+    "max_optimization_time": 30
+  },
+  "time_tracker": {
+    "storage_type": "local",
+    "auto_backup": true,
+    "backup_frequency": "daily"
+  },
+  "focus_blocker": {
+    "block_social_media": true,
+    "block_news_sites": false,
+    "custom_blocked_sites": "",
+    "focus_duration": 25
+  },
+  "timezone_handler": {
+    "primary_timezone": "America/New_York",
+    "secondary_timezones": "",
+    "auto_detect_timezone": true
+  }
+}

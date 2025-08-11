@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Save, Settings, Bell, Shield, Database, Wifi, RefreshCw, Download, Upload, Trash2, AlertCircle } from 'lucide-react';
+import { Save, Settings, Bell, Shield, Database, Wifi, RefreshCw, Download, Upload, Trash2, AlertCircle, Home } from 'lucide-react';
 import apiService from '../services/api';
 
-const SettingsPage = () => {
+const SettingsPage = ({ onBackToHome = () => window.location.href = '/' }) => {
   const [settings, setSettings] = useState({
     // General Settings
     general: {
@@ -271,6 +271,14 @@ const SettingsPage = () => {
             >
               <Trash2 className="w-4 h-4" />
               Reset to Default
+            </button>
+            
+            <button
+              onClick={onBackToHome}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              <Home className="w-4 h-4" />
+              Back to Home
             </button>
           </div>
         </div>

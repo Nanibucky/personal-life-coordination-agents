@@ -281,7 +281,7 @@ const Dashboard = () => {
   };
 
   if (currentView === 'agentManagement') {
-    return <AgentManagement />;
+    return <AgentManagement onBackToHome={() => setCurrentView('dashboard')} />;
   }
 
   return (

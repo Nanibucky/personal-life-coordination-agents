@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Heart, ShoppingCart, ChefHat, Settings, Play, Pause, RotateCcw } from 'lucide-react';
+import { Calendar, Heart, ShoppingCart, ChefHat, Settings, Play, Pause, RotateCcw, Home } from 'lucide-react';
 import AgentCard from '../components/AgentCard';
 import apiService from '../services/api';
 
-const AgentsPage = () => {
+const AgentsPage = ({ onBackToHome = () => window.location.href = '/' }) => {
   const [agents, setAgents] = useState({
     nani: { status: 'healthy', lastUpdate: '2 minutes ago', tasks: 12 },
     luna: { status: 'healthy', lastUpdate: '1 minute ago', tasks: 8 },
@@ -154,7 +154,7 @@ const AgentsPage = () => {
                 {/* Agent Controls */}
                 <div className="mt-6 space-y-2">
                   <h4 className="text-sm font-medium text-gray-900">Controls</h4>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap">
                     <button className="flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 rounded text-sm hover:bg-green-200">
                       <Play className="w-3 h-3" />
                       Start
@@ -166,6 +166,13 @@ const AgentsPage = () => {
                     <button className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded text-sm hover:bg-blue-200">
                       <RotateCcw className="w-3 h-3" />
                       Restart
+                    </button>
+                    <button
+                      onClick={onBackToHome}
+                      className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm hover:bg-gray-200"
+                    >
+                      <Home className="w-3 h-3" />
+                      Home
                     </button>
                   </div>
                 </div>
