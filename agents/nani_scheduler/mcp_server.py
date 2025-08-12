@@ -11,8 +11,10 @@ from typing import Dict, List, Optional, Any
 
 from shared.mcp_framework.mcp_server_base import BaseMCPServer
 from agents.nani_scheduler.tools.calendar_manager import CalendarManagerTool
+from agents.nani_scheduler.tools.focus_blocker import FocusBlockerTool
 from agents.nani_scheduler.tools.scheduling_optimizer import SchedulingOptimizerTool
 from agents.nani_scheduler.tools.time_tracker import TimeTrackerTool
+from agents.nani_scheduler.tools.timezone_handler import TimezoneHandlerTool
 
 
 class NaniMCPServer(BaseMCPServer):
@@ -30,8 +32,10 @@ class NaniMCPServer(BaseMCPServer):
         
         # Initialize tools
         self.calendar_manager = CalendarManagerTool()
+        self.focus_blocker = FocusBlockerTool()
         self.scheduling_optimizer = SchedulingOptimizerTool()
         self.time_tracker = TimeTrackerTool()
+        self.timezone_handler = TimezoneHandlerTool()
     
     async def initialize_agent(self):
         """Initialize Nani's tools and resources"""
@@ -339,7 +343,79 @@ class NaniMCPServer(BaseMCPServer):
             mime_type="application/json"
         )
         
-        self.logger.info("Nani MCP Server initialized with 4 tools and 4 resources")
+        # Register focus blocker tool
+        self.register_tool(
+            name="focus_blocker",
+            description="Block distractions and enforce focus sessions with website/app blocking",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": ["start_focus", "end_focus", "schedule_focus", "get_status", "configure_blocks"],
+                        "description": "Focus blocker action"
+                    },
+                    "duration_minutes": {"type": "integer", "description": "Focus session duration"},
+                    "focus_type": {
+                        "type": "string",
+                        "enum": ["deep_work", "study", "meeting", "break", "custom"],
+                        "description": "Type of focus session"
+                    },
+                    "blocked_sites": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "Websites to block during focus session"
+                    },
+                    "blocked_apps": {
+                        "type": "array", 
+                        "items": {"type": "string"},
+                        "description": "Applications to block during focus session"
+                    },
+                    "allowlist": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "Websites/apps to allow during focus session"
+                    }
+                },
+                "required": ["action"]
+            },
+            function=self._handle_focus_blocker
+        )
+        
+        # Register timezone handler tool
+        self.register_tool(
+            name="timezone_handler",
+            description="Handle timezone conversions and multi-timezone scheduling",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": ["convert_time", "schedule_across_zones", "get_timezone_info", "find_best_meeting_time"],
+                        "description": "Timezone handling action"
+                    },
+                    "time": {"type": "string", "description": "Time to convert (ISO format)"},
+                    "from_timezone": {"type": "string", "description": "Source timezone"},
+                    "to_timezone": {"type": "string", "description": "Target timezone"},
+                    "participants": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {"type": "string"},
+                                "timezone": {"type": "string"},
+                                "availability": {"type": "object"}
+                            }
+                        },
+                        "description": "Meeting participants with their timezones"
+                    }
+                },
+                "required": ["action"]
+            },
+            function=self._handle_timezone_handler
+        )
+        
+        self.logger.info("Nani MCP Server initialized with 6 tools and 4 resources")
     
     async def _execute_tool(self, tool_name: str, arguments: Dict[str, Any]) -> Any:
         """Execute tool using legacy tool classes if function not provided"""
@@ -357,162 +433,13 @@ class NaniMCPServer(BaseMCPServer):
     async def _manage_calendar(self, arguments: Dict[str, Any]) -> Dict[str, Any]:
         """Manage calendar events and scheduling"""
         try:
-            action = arguments.get("action")
-            event = arguments.get("event", {})
-            calendar_id = arguments.get("calendar_id", "default")
-            date_range = arguments.get("date_range", {})
-            duration_minutes = arguments.get("duration_minutes", 60)
+            # Use the actual CalendarManagerTool instead of hardcoded responses
+            from shared.mcp_framework.base_server import ExecutionContext
+            context = ExecutionContext(user_id="nani_user", session_id="nani_session", permissions={})
             
-            result = {
-                "action_performed": action,
-                "timestamp": datetime.now().isoformat(),
-                "calendar_id": calendar_id,
-                "success": True
-            }
-            
-            if action == "create_event":
-                # Create a new calendar event
-                event_id = f"event_{int(datetime.now().timestamp())}"
-                
-                # Parse times
-                start_time = datetime.fromisoformat(event["start_time"].replace('Z', '+00:00'))
-                end_time = datetime.fromisoformat(event["end_time"].replace('Z', '+00:00'))
-                duration = (end_time - start_time).total_seconds() / 60
-                
-                created_event = {
-                    "event_id": event_id,
-                    "title": event.get("title"),
-                    "description": event.get("description", ""),
-                    "start_time": start_time.isoformat(),
-                    "end_time": end_time.isoformat(),
-                    "duration_minutes": int(duration),
-                    "location": event.get("location", ""),
-                    "attendees": event.get("attendees", []),
-                    "category": event.get("category", "personal"),
-                    "priority": event.get("priority", "medium"),
-                    "reminder_minutes": event.get("reminder_minutes", 15),
-                    "status": "confirmed",
-                    "created_at": datetime.now().isoformat()
-                }
-                
-                # Handle recurring events
-                if event.get("recurring"):
-                    created_event["recurring"] = {
-                        "frequency": event["recurring"].get("frequency"),
-                        "interval": event["recurring"].get("interval", 1),
-                        "end_date": event["recurring"].get("end_date"),
-                        "next_occurrence": self._calculate_next_occurrence(start_time, event["recurring"])
-                    }
-                
-                result.update({
-                    "created_event": created_event,
-                    "message": f"Created event '{event.get('title')}' for {start_time.strftime('%Y-%m-%d %H:%M')}",
-                    "conflicts_detected": await self._check_conflicts(start_time, end_time),
-                    "reminder_set": created_event["reminder_minutes"] > 0
-                })
-            
-            elif action == "get_events":
-                # Retrieve events for specified date range
-                start_date = datetime.fromisoformat(date_range.get("start_date", datetime.now().strftime("%Y-%m-%d")))
-                end_date = datetime.fromisoformat(date_range.get("end_date", (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")))
-                
-                # Generate mock events
-                mock_events = self._generate_mock_events(start_date, end_date)
-                
-                # Calculate event statistics
-                event_stats = {
-                    "total_events": len(mock_events),
-                    "events_by_category": {},
-                    "events_by_priority": {},
-                    "total_scheduled_hours": 0,
-                    "busiest_day": None
-                }
-                
-                for event in mock_events:
-                    # Category stats
-                    category = event.get("category", "other")
-                    event_stats["events_by_category"][category] = event_stats["events_by_category"].get(category, 0) + 1
-                    
-                    # Priority stats
-                    priority = event.get("priority", "medium")
-                    event_stats["events_by_priority"][priority] = event_stats["events_by_priority"].get(priority, 0) + 1
-                    
-                    # Duration
-                    event_stats["total_scheduled_hours"] += event.get("duration_minutes", 60) / 60
-                
-                event_stats["total_scheduled_hours"] = round(event_stats["total_scheduled_hours"], 1)
-                
-                result.update({
-                    "events": mock_events,
-                    "date_range": {"start": start_date.isoformat(), "end": end_date.isoformat()},
-                    "event_statistics": event_stats,
-                    "message": f"Retrieved {len(mock_events)} events for the specified period"
-                })
-            
-            elif action == "check_availability":
-                # Check availability for a specific time period
-                start_date = datetime.fromisoformat(date_range.get("start_date", datetime.now().strftime("%Y-%m-%d")))
-                end_date = datetime.fromisoformat(date_range.get("end_date", (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")))
-                
-                availability_blocks = []
-                current = start_date.replace(hour=9, minute=0)  # Start checking from 9 AM
-                end_of_day = start_date.replace(hour=17, minute=0)  # End at 5 PM
-                
-                while current < end_of_day:
-                    # Mock availability - some blocks are free, some are busy
-                    is_free = (current.hour + current.minute // 30) % 3 != 0  # Mock pattern
-                    
-                    block_end = current + timedelta(minutes=30)
-                    availability_blocks.append({
-                        "start_time": current.isoformat(),
-                        "end_time": block_end.isoformat(),
-                        "status": "free" if is_free else "busy",
-                        "event_title": None if is_free else f"Scheduled Event {current.hour}:{current.minute:02d}"
-                    })
-                    
-                    current = block_end
-                
-                free_blocks = [block for block in availability_blocks if block["status"] == "free"]
-                busy_blocks = [block for block in availability_blocks if block["status"] == "busy"]
-                
-                result.update({
-                    "availability_blocks": availability_blocks,
-                    "free_blocks": free_blocks,
-                    "busy_blocks": busy_blocks,
-                    "availability_percentage": round(len(free_blocks) / len(availability_blocks) * 100, 1),
-                    "message": f"Availability checked for {start_date.strftime('%Y-%m-%d')}"
-                })
-            
-            elif action == "find_free_slots":
-                # Find free time slots for scheduling
-                start_date = datetime.fromisoformat(date_range.get("start_date", datetime.now().strftime("%Y-%m-%d")))
-                end_date = datetime.fromisoformat(date_range.get("end_date", (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")))
-                
-                free_slots = []
-                current_day = start_date
-                
-                while current_day <= end_date:
-                    # Find free slots for each day
-                    day_slots = self._find_day_free_slots(current_day, duration_minutes)
-                    free_slots.extend(day_slots)
-                    current_day += timedelta(days=1)
-                
-                # Sort by preference (morning slots preferred)
-                free_slots.sort(key=lambda x: (x["date"], x["start_time"]))
-                
-                result.update({
-                    "free_slots": free_slots[:20],  # Limit to 20 suggestions
-                    "total_slots_found": len(free_slots),
-                    "duration_requested": duration_minutes,
-                    "search_period": {"start": start_date.isoformat(), "end": end_date.isoformat()},
-                    "recommendations": [
-                        "Morning slots (9-11 AM) are typically most productive",
-                        "Avoid scheduling during lunch hours (12-1 PM)",
-                        "Friday afternoons have lower engagement"
-                    ]
-                })
-            
-            return result
+            # Execute using the updated CalendarManagerTool
+            result = await self.calendar_manager.execute(arguments, context)
+            return result.result
             
         except Exception as e:
             self.logger.error(f"Calendar management error: {e}")
@@ -1287,6 +1214,36 @@ class NaniMCPServer(BaseMCPServer):
         
         else:
             raise ValueError(f"Unknown resource: {uri}")
+
+    async def _handle_focus_blocker(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """Handle focus blocker tool requests"""
+        try:
+            context = self._create_execution_context(params)
+            result = await self.focus_blocker.execute(params, context)
+            return {"success": True, "result": result.result, "message": "Focus blocker executed successfully"}
+        except Exception as e:
+            self.logger.error(f"Focus blocker error: {str(e)}")
+            return {"success": False, "error": str(e)}
+    
+    async def _handle_timezone_handler(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """Handle timezone handler tool requests"""
+        try:
+            context = self._create_execution_context(params)
+            result = await self.timezone_handler.execute(params, context)
+            return {"success": True, "result": result.result, "message": "Timezone handler executed successfully"}
+        except Exception as e:
+            self.logger.error(f"Timezone handler error: {str(e)}")
+            return {"success": False, "error": str(e)}
+    
+    def _create_execution_context(self, params: Dict[str, Any]):
+        """Create execution context for tool calls"""
+        from shared.mcp_framework.base_server import ExecutionContext
+        return ExecutionContext(
+            user_id="nani_user",
+            session_id=f"nani_{datetime.now().isoformat()}",
+            permissions=["read", "write"],
+            metadata={"agent": "nani", "timestamp": datetime.now().isoformat()}
+        )
 
 
 async def main():

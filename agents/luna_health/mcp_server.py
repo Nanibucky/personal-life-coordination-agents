@@ -11,7 +11,8 @@ from typing import Dict, List, Optional, Any
 
 from shared.mcp_framework.mcp_server_base import BaseMCPServer
 from agents.luna_health.tools.fitness_tracker import FitnessTrackerTool
-from agents.luna_health.tools.health_monitor import HealthMonitorTool
+from agents.luna_health.tools.health_analyzer import HealthAnalyzerTool
+from agents.luna_health.tools.recovery_monitor import RecoveryMonitorTool
 from agents.luna_health.tools.workout_planner import WorkoutPlannerTool
 
 
@@ -30,7 +31,8 @@ class LunaMCPServer(BaseMCPServer):
         
         # Initialize tools
         self.fitness_tracker = FitnessTrackerTool()
-        self.health_monitor = HealthMonitorTool()
+        self.health_analyzer = HealthAnalyzerTool()
+        self.recovery_monitor = RecoveryMonitorTool()
         self.workout_planner = WorkoutPlannerTool()
     
     async def initialize_agent(self):

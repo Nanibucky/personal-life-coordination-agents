@@ -1,21 +1,21 @@
 {
   "fitness_tracker": {
-    "fitbit_client_id": "22ABC123",
-    "fitbit_client_secret": "secret123",
+    "fitbit_client_id": "${FITBIT_CLIENT_ID}",
+    "fitbit_client_secret": "${FITBIT_CLIENT_SECRET}",
     "apple_health_enabled": true,
-    "garmin_api_key": "garmin123",
-    "strava_client_id": "strava456",
-    "strava_client_secret": "strava_secret",
+    "garmin_api_key": "${GARMIN_API_KEY}",
+    "strava_client_id": "${STRAVA_CLIENT_ID}",
+    "strava_client_secret": "${STRAVA_CLIENT_SECRET}",
     "sync_frequency": "hourly"
   },
   "health_analyzer": {
-    "openai_api_key": "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",
+    "openai_api_key": "${OPENAI_API_KEY}",
     "health_data_retention": 365,
     "enable_ai_insights": true,
     "privacy_mode": "balanced"
   },
   "workout_planner": {
-    "openai_api_key": "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",
+    "openai_api_key": "${OPENAI_API_KEY}",
     "default_workout_duration": 45,
     "fitness_level": "intermediate",
     "preferred_workout_types": "strength, cardio, yoga"

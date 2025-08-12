@@ -12,10 +12,15 @@ from typing import Dict, List, Any
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
+# Load environment variables
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), '.env'))
+
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
+import aiohttp
 
 from shared.utils.config import config_manager
 from shared.utils.logging import setup_logging
@@ -76,6 +81,9 @@ class APIGateway:
         
         # Setup routes
         self._setup_routes()
+        
+        # Setup OAuth endpoints
+        self._setup_oauth_endpoints()
         
         # Workflow tracking
         self.active_workflows: Dict[str, Dict[str, Any]] = {}
@@ -139,7 +147,6 @@ class APIGateway:
                 # Try to check if agent is responsive
                 status = "healthy"
                 try:
-                    import aiohttp
                     async with aiohttp.ClientSession() as session:
                         async with session.get(f"{endpoint}/health", timeout=2) as response:
                             if response.status != 200:
@@ -299,7 +306,6 @@ class APIGateway:
             url = f"{endpoint}/tools/{tool_name}/execute"
             
             try:
-                import aiohttp
                 async with aiohttp.ClientSession() as session:
                     async with session.post(url, json=request) as response:
                         if response.status == 200:
@@ -328,6 +334,581 @@ class APIGateway:
         async def test_tool_config(agent_name: str, tool_name: str, request: dict):
             """Test a tool configuration"""
             return await self._test_tool_config(agent_name, tool_name, request.get('config', {}))
+        
+        @self.app.post("/agents/{agent_name}/chat")
+        async def chat_with_agent(agent_name: str, request: dict):
+            """Chat with a specific agent"""
+            message = request.get('message', '')
+            context = request.get('context')
+            
+            if agent_name not in self.message_router.agent_endpoints:
+                raise HTTPException(status_code=404, detail=f"Agent {agent_name} not found")
+            
+            try:
+                from datetime import datetime
+                import os
+                import json
+                
+                # Check if we have OpenAI API key
+                openai_key = os.getenv('OPENAI_API_KEY')
+                if not openai_key or openai_key == 'YOUR_OPENAI_API_KEY_HERE':
+                    return {
+                        "agent_name": agent_name,
+                        "response": f"❌ OpenAI API key not configured. Please set OPENAI_API_KEY in your .env file to enable AI chat functionality. Visit https://platform.openai.com/api-keys to get your API key.",
+                        "tools_used": [],
+                        "execution_time": 0,
+                        "error": "OpenAI API key not configured"
+                    }
+                
+                # Intelligent multi-agent routing with GPT classification
+                from openai import OpenAI
+                client = OpenAI()
+                
+                # First, classify which agent should handle this query
+                agent_classification = client.chat.completions.create(
+                    model="gpt-4o",
+                    temperature=0.1,
+                    messages=[
+                        {
+                            "role": "system",
+                            "content": """You are an intelligent router for a multi-agent personal assistant system. Classify user queries to determine which agent should handle them.
+
+Available Agents:
+- **NANI (Scheduler)**: Calendar events, appointments, time management, scheduling, reminders, productivity, focus time
+- **Bucky (Shopping)**: Shopping lists, price comparisons, deals, grocery management, pantry tracking, purchasing
+- **Luna (Health)**: Fitness tracking, workouts, health analysis, recovery, exercise planning, wellness
+- **Milo (Nutrition)**: Meal planning, recipes, nutrition analysis, diet tracking, food recommendations
+
+Examples:
+- "Schedule a meeting tomorrow" → NANI
+- "Find me the best price for organic apples" → Bucky  
+- "Plan my workout for today" → Luna
+- "What should I cook for dinner?" → Milo
+- "Add milk to my shopping list" → Bucky
+- "Track my calories today" → Milo
+- "Set a reminder for 3pm" → NANI
+- "How's my recovery after yesterday's workout?" → Luna
+
+Return JSON:
+{
+  "agent": "nani|bucky|luna|milo",
+  "confidence": 0.95,
+  "reasoning": "Brief explanation"
+}"""
+                        },
+                        {
+                            "role": "user",
+                            "content": message
+                        }
+                    ]
+                )
+                
+                try:
+                    routing_result = json.loads(agent_classification.choices[0].message.content)
+                    target_agent = routing_result.get("agent", agent_name).lower()
+                    confidence = routing_result.get("confidence", 0.5)
+                    
+                    # Override agent_name with AI-determined agent if confidence is high
+                    if confidence > 0.7 and target_agent in ["nani", "bucky", "luna", "milo"]:
+                        agent_name = target_agent
+                        self.logger.info(f"Routed query to {agent_name} with confidence {confidence}")
+                    
+                except Exception as e:
+                    self.logger.error(f"Agent classification failed: {e}, using original agent: {agent_name}")
+                
+                # Get the endpoint for the target agent
+                endpoint = self.message_router.agent_endpoints.get(agent_name)
+                if not endpoint:
+                    raise HTTPException(status_code=404, detail=f"Agent {agent_name} not found")
+                
+                # Agent-specific intelligent tool routing
+                if agent_name == "nani":
+                    try:
+                        from openai import OpenAI
+                        client = OpenAI()
+                        
+                        # Use GPT to classify the intent and extract structured data
+                        intent_response = client.chat.completions.create(
+                            model="gpt-4o",
+                            temperature=0.2,
+                            messages=[
+                                {
+                                    "role": "system",
+                                    "content": """You are NANI, an intelligent calendar and scheduling assistant. Analyze user messages and determine the appropriate action and extract relevant details.
+
+Current date/time: August 11, 2025, 8:32 PM
+
+Available actions:
+- add_event: Create calendar events, schedule meetings, set appointments
+- get_events: View calendar, check schedule, see upcoming events  
+- get_calendar_info: General calendar questions, status checks
+
+For add_event, extract:
+- title: What is being scheduled
+- start_time: When it starts (ISO format: YYYY-MM-DDTHH:MM:SS)
+- end_time: When it ends (ISO format, default to +30min if not specified)
+- description: Additional details
+- location: Where it happens
+
+For get_events, extract:
+- date: Which date to check (ISO format: YYYY-MM-DD, default to today)
+
+Return JSON format:
+{
+  "action": "add_event|get_events|get_calendar_info",
+  "parameters": {
+    "title": "...",
+    "start_time": "...",
+    "end_time": "...",
+    "description": "...",
+    "location": "...",
+    "date": "..."
+  },
+  "confidence": 0.95
+}"""
+                                },
+                                {
+                                    "role": "user", 
+                                    "content": message
+                                }
+                            ]
+                        )
+                        
+                        # Parse GPT response to determine MCP action
+                        try:
+                            intent_data = json.loads(intent_response.choices[0].message.content)
+                            action = intent_data.get("action", "get_calendar_info")
+                            parameters = intent_data.get("parameters", {})
+                            
+                            # Clean up parameters - remove empty values
+                            clean_params = {k: v for k, v in parameters.items() if v}
+                            
+                            mcp_payload = {
+                                "id": "chat_request",
+                                "method": "tools/call",
+                                "params": {
+                                    "name": "calendar_manager",
+                                    "arguments": {
+                                        "action": action,
+                                        **clean_params
+                                    }
+                                }
+                            }
+                        except Exception as e:
+                            self.logger.error(f"Failed to parse GPT intent: {e}")
+                            # Fallback to simple calendar info
+                            mcp_payload = {
+                                "id": "chat_request",
+                                "method": "tools/call",
+                                "params": {
+                                    "name": "calendar_manager", 
+                                    "arguments": {"action": "get_calendar_info"}
+                                }
+                            }
+                        
+                        async with aiohttp.ClientSession() as session:
+                            async with session.post(f"{endpoint}/mcp", json=mcp_payload) as resp:
+                                if resp.status == 200:
+                                    mcp_result = await resp.json()
+                                    
+                                    # Extract the MCP result and generate intelligent response
+                                    content = mcp_result.get("result", {}).get("content", [])
+                                    if content and content[0].get("type") == "text":
+                                        mcp_response = content[0].get("text", "")
+                                        
+                                        # Parse the MCP tool result
+                                        try:
+                                            tool_result = json.loads(mcp_response)
+                                        except:
+                                            tool_result = {"message": mcp_response}
+                                        
+                                        # Generate natural response using GPT
+                                        final_response = client.chat.completions.create(
+                                            model="gpt-4o",
+                                            temperature=0.3,
+                                            messages=[
+                                                {
+                                                    "role": "system",
+                                                    "content": f"""You are NANI, the user's personal scheduling assistant. Generate a natural, helpful response based on the calendar tool result.
+
+Original user message: "{message}"
+Tool result: {json.dumps(tool_result, indent=2)}
+
+Guidelines:
+- Be conversational and friendly
+- Confirm what was done clearly
+- For successful actions, acknowledge completion
+- For calendar events, mention key details (time, title)
+- Keep responses concise but informative
+- Don't mention technical terms like "MCP" or "tool execution"
+- Sound like a helpful personal assistant"""
+                                                },
+                                                {
+                                                    "role": "user",
+                                                    "content": f"Generate a response for: {message}"
+                                                }
+                                            ]
+                                        )
+                                        
+                                        response = final_response.choices[0].message.content
+                                    else:
+                                        response = "I've processed your calendar request successfully."
+                                    
+                                    return {
+                                        "agent_name": agent_name,
+                                        "response": response,
+                                        "tools_used": ["calendar_manager"],
+                                        "execution_time": 1.0,
+                                        "timestamp": datetime.now().isoformat()
+                                    }
+                                else:
+                                    error_text = await resp.text()
+                                    self.logger.error(f"NANI MCP error: {error_text}")
+                                    return {
+                                        "agent_name": agent_name,
+                                        "response": "I encountered an error accessing my calendar. Please try again.",
+                                        "tools_used": [],
+                                        "execution_time": 0,
+                                        "error": f"MCP error: {resp.status}"
+                                    }
+                                    
+                    except Exception as e:
+                        self.logger.error(f"Error communicating with NANI: {e}")
+                        return {
+                            "agent_name": agent_name,
+                            "response": "I encountered an error. Please try again in a moment.",
+                            "tools_used": [],
+                            "execution_time": 0,
+                            "error": str(e)
+                        }
+                
+                # Generic MCP routing for all other agents
+                else:
+                    try:
+                        # Universal GPT-based tool routing for any agent
+                        tool_selection = client.chat.completions.create(
+                            model="gpt-4o",
+                            temperature=0.2,
+                            messages=[
+                                {
+                                    "role": "system", 
+                                    "content": f"""You are a tool selection AI for {agent_name.upper()} agent. Based on the user query, determine which tool to use and extract parameters.
+
+Agent: {agent_name.upper()}
+
+Available tools based on agent:
+- Bucky (Shopping): shopping_optimizer, price_comparator, deal_finder, pantry_tracker
+- Luna (Health): fitness_tracker, workout_planner, health_analyzer, recovery_monitor  
+- Milo (Nutrition): meal_planner, recipe_engine, nutrition_analyzer
+- NANI (Scheduler): calendar_manager, scheduling_optimizer, time_tracker, focus_blocker
+
+Return JSON:
+{{
+  "tool": "tool_name",
+  "parameters": {{
+    "key": "value"
+  }},
+  "confidence": 0.95
+}}"""
+                                },
+                                {
+                                    "role": "user",
+                                    "content": message
+                                }
+                            ]
+                        )
+                        
+                        # Parse tool selection and make MCP call
+                        try:
+                            tool_data = json.loads(tool_selection.choices[0].message.content)
+                            tool_name = tool_data.get("tool", "default_tool")
+                            parameters = tool_data.get("parameters", {})
+                            
+                            mcp_payload = {
+                                "id": "chat_request",
+                                "method": "tools/call",
+                                "params": {
+                                    "name": tool_name,
+                                    "arguments": parameters
+                                }
+                            }
+                            
+                        except Exception as e:
+                            self.logger.error(f"Tool selection parsing failed: {e}")
+                            # Fallback with generic parameters
+                            mcp_payload = {
+                                "id": "chat_request",
+                                "method": "tools/call",
+                                "params": {
+                                    "name": "default_tool",
+                                    "arguments": {"query": message}
+                                }
+                            }
+                        
+                        # Execute MCP call
+                        async with aiohttp.ClientSession() as session:
+                            async with session.post(f"{endpoint}/mcp", json=mcp_payload) as resp:
+                                if resp.status == 200:
+                                    mcp_result = await resp.json()
+                                    
+                                    # Parse MCP response
+                                    content = mcp_result.get("result", {}).get("content", [])
+                                    if content and content[0].get("type") == "text":
+                                        mcp_response = content[0].get("text", "")
+                                        
+                                        try:
+                                            tool_result = json.loads(mcp_response)
+                                        except:
+                                            tool_result = {"message": mcp_response}
+                                        
+                                        # Generate natural response with agent personality
+                                        agent_personalities = {
+                                            "bucky": "Bucky, your smart shopping assistant",
+                                            "luna": "Luna, your health and fitness coach", 
+                                            "milo": "Milo, your nutrition and meal planning expert"
+                                        }
+                                        
+                                        final_response = client.chat.completions.create(
+                                            model="gpt-4o",
+                                            temperature=0.3,
+                                            messages=[
+                                                {
+                                                    "role": "system",
+                                                    "content": f"""You are {agent_personalities.get(agent_name, agent_name)}, responding based on tool results.
+
+Original user message: "{message}"
+Tool result: {json.dumps(tool_result, indent=2)}
+
+Guidelines:
+- Be conversational and helpful in your specialized domain
+- Confirm what was accomplished
+- Give specific, actionable information  
+- Keep responses concise but informative
+- Don't mention "MCP" or technical implementation details
+- Sound like a knowledgeable personal assistant in your field"""
+                                                },
+                                                {
+                                                    "role": "user",
+                                                    "content": f"Generate a response for: {message}"
+                                                }
+                                            ]
+                                        )
+                                        
+                                        response = final_response.choices[0].message.content
+                                    else:
+                                        response = f"I've processed your {agent_name} request successfully."
+                                    
+                                    return {
+                                        "agent_name": agent_name,
+                                        "response": response,
+                                        "tools_used": [tool_name],
+                                        "execution_time": 1.5,
+                                        "timestamp": datetime.now().isoformat()
+                                    }
+                                    
+                                else:
+                                    error_text = await resp.text()
+                                    self.logger.error(f"{agent_name} MCP error: {error_text}")
+                                    return {
+                                        "agent_name": agent_name,
+                                        "response": f"I encountered an issue processing your {agent_name} request. Please try again.",
+                                        "execution_time": 0,
+                                        "error": f"MCP error: {resp.status}"
+                                    }
+                                    
+                    except Exception as e:
+                        self.logger.error(f"Error communicating with {agent_name}: {e}")
+                        return {
+                            "agent_name": agent_name,
+                            "response": f"I encountered an error processing your {agent_name} request. Please try again in a moment.",
+                            "tools_used": [],
+                            "execution_time": 0,
+                            "error": str(e)
+                        }
+                
+                # If we have an API key, use OpenAI to understand intent and execute tools
+                try:
+                    from openai import OpenAI
+                    import json
+                    client = OpenAI(api_key=openai_key)
+                    
+                    # First, use OpenAI to understand the intent and extract parameters
+                    from datetime import datetime, timedelta
+                    import pytz
+                    
+                    intent_prompt = f"""
+                    You are analyzing a user message for {agent_name} agent to determine if it requires tool execution.
+                    Current time: {datetime.now().isoformat()}
+                    
+                    Agent capabilities:
+                    - nani: calendar_manager (create/get/update/delete events, find free time, get events)
+                    - bucky: deal_finder, price_comparator, shopping_optimizer, pantry_tracker
+                    - luna: fitness_tracker, health_analyzer, workout_planner, recovery_monitor  
+                    - milo: nutrition_analyzer, meal_planner, recipe_engine
+                    
+                    User message: "{message}"
+                    
+                    For scheduling requests, extract:
+                    - title: meeting/event title
+                    - start_time: ISO format (YYYY-MM-DDTHH:MM:SS)
+                    - duration_minutes: duration in minutes
+                    - description: additional details
+                    
+                    Respond with JSON in this format:
+                    {{
+                        "needs_tool": true/false,
+                        "tool_name": "tool_name" (if needed),
+                        "action": "specific_action" (if needed),
+                        "event_details": {{
+                            "title": "extracted title",
+                            "start_time": "2025-08-12T14:00:00" (example),
+                            "duration_minutes": 60,
+                            "description": "extracted description"
+                        }} (for calendar events),
+                        "response_type": "tool_result" or "conversational"
+                    }}
+                    
+                    Examples:
+                    - "Schedule a team meeting tomorrow at 2pm for 1 hour" -> 
+                      {{"needs_tool": true, "tool_name": "calendar_manager", "action": "create_event", 
+                        "event_details": {{"title": "Team Meeting", "start_time": "2025-08-12T14:00:00", "duration_minutes": 60}}}}
+                    - "What are my events today?" -> 
+                      {{"needs_tool": true, "tool_name": "calendar_manager", "action": "get_events"}}
+                    - "What should I eat?" -> {{"needs_tool": false, "response_type": "conversational"}}
+                    """
+                    
+                    intent_response = client.chat.completions.create(
+                        model='gpt-3.5-turbo',
+                        messages=[{"role": "user", "content": intent_prompt}],
+                        max_tokens=200,
+                        temperature=0.1
+                    )
+                    
+                    try:
+                        intent_data = json.loads(intent_response.choices[0].message.content)
+                    except:
+                        intent_data = {"needs_tool": False, "response_type": "conversational"}
+                    
+                    tools_used = []
+                    tool_results = ""
+                    
+                    # If tool execution is needed, call the appropriate MCP endpoint
+                    if intent_data.get("needs_tool", False):
+                        tool_name = intent_data.get("tool_name")
+                        action = intent_data.get("action")
+                        
+                        if agent_name == "nani" and tool_name == "calendar_manager":
+                            try:
+                                async with aiohttp.ClientSession() as session:
+                                    # Prepare arguments based on action and extracted details
+                                    arguments = {
+                                        "action": action or "parse_natural_language",
+                                        "user_id": "default_user"
+                                    }
+                                    
+                                    # Add event details for create/update actions
+                                    if action == "create_event" and "event_details" in intent_data:
+                                        event_details = intent_data["event_details"]
+                                        # Calculate end time if not provided
+                                        start_time = event_details.get("start_time")
+                                        duration = event_details.get("duration_minutes", 60)
+                                        end_time = self._calculate_end_time(start_time, duration) if start_time else None
+                                        
+                                        arguments["event_details"] = {
+                                            "title": event_details.get("title", "New Event"),
+                                            "start_time": start_time,
+                                            "end_time": end_time,
+                                            "description": event_details.get("description", f"Created via chat: {message}"),
+                                            "timezone": "UTC"
+                                        }
+                                    elif action == "get_events":
+                                        # For getting events, set date range
+                                        today = datetime.now()
+                                        arguments["start_date"] = today.strftime("%Y-%m-%d")
+                                        arguments["end_date"] = (today + timedelta(days=7)).strftime("%Y-%m-%d")
+                                    else:
+                                        # Fallback to natural language processing
+                                        arguments["natural_query"] = message
+                                    
+                                    # Call the Nani MCP server directly
+                                    tool_payload = {
+                                        "method": "tools/call",
+                                        "params": {
+                                            "name": "calendar_manager",
+                                            "arguments": arguments
+                                        }
+                                    }
+                                    
+                                    endpoint = self.message_router.agent_endpoints.get(agent_name)
+                                    async with session.post(f"{endpoint}/mcp", json=tool_payload) as resp:
+                                        if resp.status == 200:
+                                            tool_result = await resp.json()
+                                            tools_used.append(tool_name)
+                                            
+                                            # Extract meaningful result
+                                            if tool_result.get("result"):
+                                                result_content = tool_result["result"]
+                                                if isinstance(result_content, dict) and result_content.get("success"):
+                                                    tool_results = f"✅ Calendar updated: {result_content.get('message', 'Event processed successfully')}"
+                                                else:
+                                                    tool_results = f"Tool result: {result_content}"
+                                            else:
+                                                tool_results = "Tool executed successfully"
+                                        else:
+                                            tool_results = f"Tool call failed with status {resp.status}"
+                            except Exception as e:
+                                tool_results = f"Tool execution failed: {str(e)}"
+                    
+                    # Generate final response with context from tool results
+                    agent_contexts = {
+                        "nani": "You are Nani, a helpful calendar and scheduling assistant. You help with time management, scheduling, and productivity optimization.",
+                        "bucky": "You are Bucky, a smart shopping and inventory assistant. You help with shopping lists, price comparisons, and inventory management.", 
+                        "luna": "You are Luna, a health and fitness assistant. You help with workout planning, health tracking, and wellness optimization.",
+                        "milo": "You are Milo, a nutrition and meal planning assistant. You help with meal planning, recipe suggestions, and nutritional analysis."
+                    }
+                    
+                    system_prompt = agent_contexts.get(agent_name, f"You are {agent_name}, a helpful personal assistant.")
+                    
+                    if tool_results:
+                        final_prompt = f"User request: {message}\nTool execution result: {tool_results}\n\nProvide a helpful response based on the tool execution results."
+                    else:
+                        final_prompt = message
+                    
+                    final_response = client.chat.completions.create(
+                        model='gpt-3.5-turbo',
+                        messages=[
+                            {"role": "system", "content": system_prompt},
+                            {"role": "user", "content": final_prompt}
+                        ],
+                        max_tokens=500,
+                        temperature=0.7
+                    )
+                    
+                    response_text = final_response.choices[0].message.content
+                    if tool_results and "Tool executed:" in tool_results:
+                        response_text += f"\n\n✅ Action completed: {tool_results.replace('Tool executed: ', '')}"
+                    
+                    return {
+                        "agent_name": agent_name,
+                        "response": response_text,
+                        "tools_used": tools_used,
+                        "execution_time": 2.5,
+                        "timestamp": datetime.now().isoformat(),
+                        "tool_results": tool_results if tool_results else None
+                    }
+                
+                except Exception as e:
+                    return {
+                        "agent_name": agent_name, 
+                        "response": f"❌ Error connecting to OpenAI: {str(e)}. Please check your API key and try again.",
+                        "tools_used": [],
+                        "execution_time": 0,
+                        "error": str(e)
+                    }
+                    
+            except Exception as e:
+                self.logger.error(f"Chat error with agent {agent_name}: {e}")
+                raise HTTPException(status_code=500, detail=str(e))
     
     def _get_agents_for_workflow(self, workflow_type: str) -> List[str]:
         """Determine which agents are involved in a workflow type"""
@@ -387,6 +968,8 @@ class APIGateway:
         """Get configuration for a tool"""
         import json
         from pathlib import Path
+        import os
+        import re
         
         # Load from config file - handle different agent naming patterns
         agent_mapping = {
@@ -403,7 +986,23 @@ class APIGateway:
             try:
                 with open(config_file, 'r') as f:
                     all_configs = json.load(f)
-                    config_data = all_configs.get(tool_name, {})
+                    raw_config = all_configs.get(tool_name, {})
+                    
+                    # Resolve environment variables in the config
+                    def resolve_env_vars(obj):
+                        if isinstance(obj, dict):
+                            return {k: resolve_env_vars(v) for k, v in obj.items()}
+                        elif isinstance(obj, str):
+                            # Replace ${VAR_NAME} with actual environment variable values
+                            def replace_var(match):
+                                var_name = match.group(1)
+                                return os.getenv(var_name, f"${{{var_name}}}")
+                            return re.sub(r'\$\{([^}]+)\}', replace_var, obj)
+                        else:
+                            return obj
+                    
+                    config_data = resolve_env_vars(raw_config)
+                    
             except Exception as e:
                 self.logger.warning(f"Failed to load config: {e}")
         
@@ -691,6 +1290,16 @@ class APIGateway:
         }
         return schemas.get(tool_name, {})
     
+    def _calculate_end_time(self, start_time: str, duration_minutes: int) -> str:
+        """Calculate end time based on start time and duration"""
+        try:
+            from datetime import datetime, timedelta
+            start_dt = datetime.fromisoformat(start_time.replace('Z', '+00:00'))
+            end_dt = start_dt + timedelta(minutes=duration_minutes)
+            return end_dt.isoformat()
+        except:
+            return start_time  # Fallback to start time if parsing fails
+    
     def _update_environment_variables(self, agent_name: str, tool_name: str, config: Dict[str, Any]) -> None:
         """Update environment variables based on tool configuration"""
         import os
@@ -704,6 +1313,66 @@ class APIGateway:
             if config.get("openai_api_key"):
                 os.environ["OPENAI_API_KEY"] = config["openai_api_key"]
     
+    def _setup_oauth_endpoints(self):
+        """Setup Google OAuth callback endpoint"""
+        
+        @self.app.get("/auth/google/callback")
+        async def google_oauth_callback(code: str = None, error: str = None):
+            """Handle Google OAuth callback"""
+            if error:
+                return {
+                    "success": False,
+                    "error": f"OAuth error: {error}",
+                    "message": "Authentication failed. Please try again."
+                }
+            
+            if not code:
+                return {
+                    "success": False,
+                    "error": "No authorization code received",
+                    "message": "Authentication failed. Please try again."
+                }
+            
+            try:
+                # Import here to avoid circular imports
+                from agents.nani_scheduler.src.google_calendar_integration import GoogleCalendarManager
+                import json
+                from pathlib import Path
+                
+                # Load calendar config
+                tool_config_file = Path(__file__).parent.parent.parent / "agents" / "nani_scheduler" / "config" / "tool_config.json"
+                if tool_config_file.exists():
+                    with open(tool_config_file, 'r') as f:
+                        tool_configs = json.load(f)
+                        calendar_config = tool_configs.get("calendar_manager", {})
+                else:
+                    calendar_config = {}
+                
+                # Complete OAuth flow
+                google_calendar = GoogleCalendarManager(calendar_config)
+                success = google_calendar.complete_oauth(code)
+                
+                if success:
+                    return {
+                        "success": True,
+                        "message": "✅ Google Calendar connected successfully! You can now close this window and return to your chat.",
+                        "instructions": "Go back to your chat and try scheduling an event again."
+                    }
+                else:
+                    return {
+                        "success": False,
+                        "error": "Failed to complete OAuth flow",
+                        "message": "Authentication failed. Please try the authentication link again."
+                    }
+                    
+            except Exception as e:
+                self.logger.error(f"OAuth callback error: {e}")
+                return {
+                    "success": False,
+                    "error": str(e),
+                    "message": "Authentication failed due to an error. Please try again."
+                }
+
     def run(self, host: str = "0.0.0.0", port: int = 8000):
         """Run the API Gateway"""
         self.logger.info(f"Starting API Gateway on {host}:{port}")

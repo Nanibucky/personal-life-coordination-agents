@@ -120,86 +120,51 @@ const Dashboard = () => {
     setMessages(prev => [...prev, analysisMessage]);
     
     try {
-      // Send workflow request to backend with Master Coordinator
-      const workflowResponse = await apiService.executeWorkflow({
-        type: 'general_query',
-        user_id: 'frontend_user',
-        query: currentQuery,
-        timestamp: new Date().toISOString()
-      });
+      // Determine which agent to use based on the query
+      let targetAgent = 'nani'; // Default to Nani for general queries
       
-      if (workflowResponse.workflow_id) {
-        // Poll for workflow completion
-        let attempts = 0;
-        const maxAttempts = 10;
-        
-        const pollWorkflow = async () => {
-          try {
-            const statusResponse = await apiService.getWorkflowStatus(workflowResponse.workflow_id);
-            
-            if (statusResponse.status === 'completed' && statusResponse.result) {
-              const agentResponse = {
-                id: messages.length + 3,
-                type: 'agent',
-                agent: statusResponse.primary_agent || 'master_coordinator',
-                content: statusResponse.result || 'Task completed successfully!',
-                timestamp: new Date().toISOString()
-              };
-              setMessages(prev => [...prev, agentResponse]);
-            } else if (statusResponse.status === 'failed') {
-              const errorResponse = {
-                id: messages.length + 3,
-                type: 'agent',
-                agent: 'system',
-                content: `I'm having trouble processing your request right now. Please try again or be more specific about what you need help with.`,
-                timestamp: new Date().toISOString()
-              };
-              setMessages(prev => [...prev, errorResponse]);
-            } else if (attempts < maxAttempts) {
-              attempts++;
-              setTimeout(pollWorkflow, 2000);
-            } else {
-              // Timeout - show simple message
-              const timeoutMessage = {
-                id: messages.length + 3,
-                type: 'system',
-                content: 'Request timed out. Please try again with a more specific question.',
-                timestamp: new Date().toISOString()
-              };
-              setMessages(prev => [...prev, timeoutMessage]);
-            }
-          } catch (error) {
-            console.error('Workflow polling error:', error);
-            const errorMessage = {
-              id: messages.length + 3,
-              type: 'system',
-              content: 'Connection issue. Please try again.',
-              timestamp: new Date().toISOString()
-            };
-            setMessages(prev => [...prev, errorMessage]);
-          }
-        };
-        
-        setTimeout(pollWorkflow, 1000);
-      } else {
-        const noWorkflowMessage = {
-          id: messages.length + 3,
-          type: 'system',
-          content: 'Unable to process request. Please try again.',
-          timestamp: new Date().toISOString()
-        };
-        setMessages(prev => [...prev, noWorkflowMessage]);
+      // Simple intent detection
+      if (currentQuery.toLowerCase().includes('meal') || currentQuery.toLowerCase().includes('food') || currentQuery.toLowerCase().includes('recipe') || currentQuery.toLowerCase().includes('nutrition')) {
+        targetAgent = 'milo';
+      } else if (currentQuery.toLowerCase().includes('schedule') || currentQuery.toLowerCase().includes('calendar') || currentQuery.toLowerCase().includes('meeting') || currentQuery.toLowerCase().includes('time')) {
+        targetAgent = 'nani';
+      } else if (currentQuery.toLowerCase().includes('health') || currentQuery.toLowerCase().includes('fitness') || currentQuery.toLowerCase().includes('workout') || currentQuery.toLowerCase().includes('exercise')) {
+        targetAgent = 'luna';
+      } else if (currentQuery.toLowerCase().includes('shopping') || currentQuery.toLowerCase().includes('buy') || currentQuery.toLowerCase().includes('store') || currentQuery.toLowerCase().includes('price')) {
+        targetAgent = 'bucky';
       }
       
-    } catch (error) {
-      console.error('Query execution error:', error);
-      const connectionErrorMessage = {
+      // Use direct chat with the selected agent
+      const chatResponse = await apiService.chatWithAgent(targetAgent, currentQuery);
+      
+      // Remove thinking message and add agent response
+      setMessages(prev => prev.filter(msg => msg.content !== '🧠 Master Coordinator analyzing your query...'));
+      
+      const agentResponse = {
         id: messages.length + 3,
-        type: 'system', 
-        content: 'Connection error. Please check if the backend is running.',
+        type: 'agent',
+        agent: targetAgent,
+        content: chatResponse.response || 'I received your message but had trouble responding.',
+        timestamp: new Date().toISOString(),
+        tools_used: chatResponse.tools_used || [],
+        execution_time: chatResponse.execution_time || 0
+      };
+      
+      setMessages(prev => [...prev, agentResponse]);
+      
+    } catch (error) {
+      console.error('Chat error:', error);
+      
+      // Remove thinking message
+      setMessages(prev => prev.filter(msg => msg.content !== '🧠 Master Coordinator analyzing your query...'));
+      
+      const errorMessage = {
+        id: messages.length + 3,
+        type: 'system',
+        content: `Sorry, I had trouble processing your request: ${error.message || 'Connection issue'}. Please try again.`,
         timestamp: new Date().toISOString()
       };
-      setMessages(prev => [...prev, connectionErrorMessage]);
+      setMessages(prev => [...prev, errorMessage]);
     }
   };
   

@@ -53,15 +53,23 @@ class LangChainBaseAgent:
     
     def _initialize_llm(self) -> ChatOpenAI:
         """Initialize the language model"""
-        # Get LLM config from environment or config
-        model_name = self.config.get("llm", {}).get("model", "gpt-4o-mini")
-        temperature = self.config.get("llm", {}).get("temperature", 0.1)
-        max_tokens = self.config.get("llm", {}).get("max_tokens", 800)
+        # Get LLM config from environment or config - check both "ai" and "llm" sections
+        ai_config = self.config.get("ai", {})
+        llm_config = self.config.get("llm", {})
+        
+        # Prefer "ai" section, fallback to "llm" section
+        model_name = ai_config.get("model") or llm_config.get("model", "gpt-4o-mini")
+        temperature = ai_config.get("temperature") or llm_config.get("temperature", 0.1)
+        max_tokens = ai_config.get("max_tokens") or llm_config.get("max_tokens", 800)
+        
+        # Check if streaming should be disabled
+        stream_enabled = ai_config.get("stream", True)
         
         return ChatOpenAI(
             model=model_name,
             temperature=temperature,
-            max_tokens=max_tokens
+            max_tokens=max_tokens,
+            streaming=stream_enabled
         )
     
     def _register_tools(self):

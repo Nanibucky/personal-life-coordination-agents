@@ -1,0 +1,641 @@
+[
+  {
+    "timestamp": "2025-08-11T19:07:22.225463",
+    "user_message": "Hi Nani, my name is Tharun and I prefer morning meetings. Can you remember this?",
+    "assistant_response": "Hi Tharun! I've noted that you prefer morning meetings. I'll keep this preference in mind when scheduling your events. If there's anything else you'd like me to remember or assist with, just let me know!",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "session_001",
+      "timestamp": "2025-08-11T19:07:20.755912",
+      "memory_context": {
+        "context_summary": "Total interactions: 0",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:07:22.225497",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 1,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:08:01.725713",
+    "user_message": "Schedule a meeting for me tomorrow. What time do you recommend?",
+    "assistant_response": "You have no events scheduled for tomorrow, August 12, 2025. Based on your preferences and work hours (9:00 AM to 5:00 PM), I recommend scheduling the meeting at 10:00 AM. This allows for a productive start to the day with a buffer time before and after the meeting.\n\nWould you like me to schedule the meeting for you at this time?",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "session_002",
+      "timestamp": "2025-08-11T19:07:58.222208",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:07 | Recent topics: meeting, time:morning | Total interactions: 1",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [
+          {
+            "timestamp": "2025-08-11T19:07:22.225463",
+            "user_message": "Hi Nani, my name is Tharun and I prefer morning meetings. Can you remember this?",
+            "assistant_response": "Hi Tharun! I've noted that you prefer morning meetings. I'll keep this preference in mind when sched..."
+          }
+        ],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:08:01.725748",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 2,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:24:00.223588",
+    "user_message": "Schedule a call for tomorrow at 10 AM",
+    "assistant_response": "It seems that your Google Calendar is not currently connected. Please authenticate your account using the following link: [Authenticate Google Calendar](https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fgoogle%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&state=2zA1MQPN5Qe0emGj0UCWZuXAsjM5NF&prompt=consent&access_type=offline).\n\nOnce you've authenticated, I can schedule the call for tomorrow at 10 AM. Let me know if you need any further assistance!",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "session_003",
+      "timestamp": "2025-08-11T19:23:57.580303",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:08 | Recent topics: meeting, time:morning, schedule, time:tomorrow | Total interactions: 2",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [
+          {
+            "timestamp": "2025-08-11T19:07:22.225463",
+            "user_message": "Hi Nani, my name is Tharun and I prefer morning meetings. Can you remember this?",
+            "assistant_response": "Hi Tharun! I've noted that you prefer morning meetings. I'll keep this preference in mind when sched..."
+          },
+          {
+            "timestamp": "2025-08-11T19:08:01.725713",
+            "user_message": "Schedule a meeting for me tomorrow. What time do you recommend?",
+            "assistant_response": "You have no events scheduled for tomorrow, August 12, 2025. Based on your preferences and work hours..."
+          }
+        ],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:24:00.223644",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow",
+            "call"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 3,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:40:26.510460",
+    "user_message": "Schedule a call for tomorrow at 10 AM",
+    "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account using the following link: [Authenticate Google Calendar](https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fgoogle%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&state=b0dx2YTk83lXLRZBXTRw2dWxHhdWVy&prompt=consent&access_type=offline).\n\nOnce connected, I can schedule the call for tomorrow at 10 AM. Let me know if you need any assistance with the authentication process!",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "session_004",
+      "timestamp": "2025-08-11T19:40:22.764396",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:24 | Recent topics: meeting, time:morning, schedule, time:tomorrow, call | Total interactions: 3",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [
+          {
+            "timestamp": "2025-08-11T19:07:22.225463",
+            "user_message": "Hi Nani, my name is Tharun and I prefer morning meetings. Can you remember this?",
+            "assistant_response": "Hi Tharun! I've noted that you prefer morning meetings. I'll keep this preference in mind when sched..."
+          },
+          {
+            "timestamp": "2025-08-11T19:08:01.725713",
+            "user_message": "Schedule a meeting for me tomorrow. What time do you recommend?",
+            "assistant_response": "You have no events scheduled for tomorrow, August 12, 2025. Based on your preferences and work hours..."
+          },
+          {
+            "timestamp": "2025-08-11T19:24:00.223588",
+            "user_message": "Schedule a call for tomorrow at 10 AM",
+            "assistant_response": "It seems that your Google Calendar is not currently connected. Please authenticate your account usin..."
+          }
+        ],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:40:26.510492",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow",
+            "call"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 4,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:42:59.266538",
+    "user_message": "test calendar",
+    "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account by following this [link](https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fgoogle%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&state=vxLiRy8uBRkIMCScu9XjlIpTatbhaj&prompt=consent&access_type=offline). Once connected, I'll be able to manage your calendar events for you.",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "session_005",
+      "timestamp": "2025-08-11T19:42:55.731224",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:40 | Recent topics: meeting, time:morning, schedule, time:tomorrow, call | Total interactions: 4",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:42:59.266574",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow",
+            "call",
+            "calendar"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 5,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:43:28.705819",
+    "user_message": "check calendar",
+    "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account by following [this link](https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fgoogle%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&state=9ZGKH4lpRtCmv3p8D4dTCt56pJ40b1&prompt=consent&access_type=offline) to enable calendar management. Once connected, I can help you check your calendar and manage your events.",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "session_006",
+      "timestamp": "2025-08-11T19:43:25.183654",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:42 | Recent topics: meeting, time:morning, schedule, time:tomorrow, call | Total interactions: 5",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [
+          {
+            "timestamp": "2025-08-11T19:42:59.266538",
+            "user_message": "test calendar",
+            "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account by f..."
+          }
+        ],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:43:28.705855",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow",
+            "call",
+            "calendar"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 6,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:43:58.471265",
+    "user_message": "hello",
+    "assistant_response": "Hello! How can I assist you today?",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "test",
+      "timestamp": "2025-08-11T19:43:57.444670",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:43 | Recent topics: meeting, time:morning, schedule, time:tomorrow, call | Total interactions: 6",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:43:58.471297",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow",
+            "call",
+            "calendar"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 7,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:44:23.069265",
+    "user_message": "schedule call",
+    "assistant_response": "Could you please provide me with the details for the call you'd like to schedule? Specifically, I need to know:\n\n1. The date and time for the call.\n2. The duration of the call (default is 30 minutes based on your preference).\n3. The person or people you'll be calling.\n4. Any specific notes or location details you'd like to include.\n\nLet me know if there's anything else I should consider!",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "test2",
+      "timestamp": "2025-08-11T19:44:21.068576",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:43 | Recent topics: meeting, time:morning, schedule, time:tomorrow, call | Total interactions: 7",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [
+          {
+            "timestamp": "2025-08-11T19:08:01.725713",
+            "user_message": "Schedule a meeting for me tomorrow. What time do you recommend?",
+            "assistant_response": "You have no events scheduled for tomorrow, August 12, 2025. Based on your preferences and work hours..."
+          },
+          {
+            "timestamp": "2025-08-11T19:24:00.223588",
+            "user_message": "Schedule a call for tomorrow at 10 AM",
+            "assistant_response": "It seems that your Google Calendar is not currently connected. Please authenticate your account usin..."
+          },
+          {
+            "timestamp": "2025-08-11T19:40:26.510460",
+            "user_message": "Schedule a call for tomorrow at 10 AM",
+            "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account usin..."
+          }
+        ],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:44:23.069299",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow",
+            "call",
+            "calendar"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 8,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:44:36.431072",
+    "user_message": "schedule a call for tomorrow at 2pm",
+    "assistant_response": "It seems that your Google Calendar is not currently connected. Please authenticate your account using the following link: [Authenticate Google Calendar](https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fgoogle%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&state=S6QrenYTw77QHipRUFZAADCiPbNNgk&prompt=consent&access_type=offline).\n\nOnce you've authenticated, I can proceed to schedule the call for tomorrow at 2 PM. Let me know if you need any further assistance!",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "test3",
+      "timestamp": "2025-08-11T19:44:32.973602",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:44 | Recent topics: meeting, time:morning, schedule, time:tomorrow, call | Total interactions: 8",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [
+          {
+            "timestamp": "2025-08-11T19:24:00.223588",
+            "user_message": "Schedule a call for tomorrow at 10 AM",
+            "assistant_response": "It seems that your Google Calendar is not currently connected. Please authenticate your account usin..."
+          },
+          {
+            "timestamp": "2025-08-11T19:40:26.510460",
+            "user_message": "Schedule a call for tomorrow at 10 AM",
+            "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account usin..."
+          },
+          {
+            "timestamp": "2025-08-11T19:42:59.266538",
+            "user_message": "test calendar",
+            "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account by f..."
+          },
+          {
+            "timestamp": "2025-08-11T19:43:28.705819",
+            "user_message": "check calendar",
+            "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account by f..."
+          },
+          {
+            "timestamp": "2025-08-11T19:44:23.069265",
+            "user_message": "schedule call",
+            "assistant_response": "Could you please provide me with the details for the call you'd like to schedule? Specifically, I ne..."
+          }
+        ],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:44:36.431094",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow",
+            "call",
+            "calendar"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 9,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  },
+  {
+    "timestamp": "2025-08-11T19:45:11.384602",
+    "user_message": "schedule a call for tomorrow at 10 AM",
+    "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account using the following link to allow me to manage your calendar:\n\n[Authenticate Google Calendar](https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=162356676608-79dcp2841e6tndjjbn1373bq1tv0p3ud.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fgoogle%2Fcallback&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&state=mrYMIBIpt9muOjdA5yl0bOJ6C88zfB&prompt=consent&access_type=offline)\n\nOnce you've authenticated, I can proceed to schedule the call for tomorrow at 10 AM. Let me know if you need any help with the process!",
+    "tools_used": [],
+    "context": {
+      "user_id": "tharun_user",
+      "session_id": "final_test",
+      "timestamp": "2025-08-11T19:45:06.098026",
+      "memory_context": {
+        "context_summary": "Last interaction: 2025-08-11 19:44 | Recent topics: meeting, time:morning, schedule, time:tomorrow, call | Total interactions: 9",
+        "user_preferences": {
+          "timezone": "America/New_York",
+          "preferred_meeting_duration": 30,
+          "work_hours": {
+            "start": "09:00",
+            "end": "17:00"
+          },
+          "notification_preferences": {
+            "email": true,
+            "sms": false
+          },
+          "communication_style": "professional",
+          "scheduling_preferences": {
+            "buffer_time": 15,
+            "max_back_to_back_meetings": 3,
+            "preferred_meeting_times": [
+              "10:00",
+              "14:00",
+              "15:00"
+            ]
+          }
+        },
+        "relevant_conversations": [
+          {
+            "timestamp": "2025-08-11T19:40:26.510460",
+            "user_message": "Schedule a call for tomorrow at 10 AM",
+            "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account usin..."
+          },
+          {
+            "timestamp": "2025-08-11T19:42:59.266538",
+            "user_message": "test calendar",
+            "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account by f..."
+          },
+          {
+            "timestamp": "2025-08-11T19:43:28.705819",
+            "user_message": "check calendar",
+            "assistant_response": "It looks like your Google Calendar is not currently connected. Please authenticate your account by f..."
+          },
+          {
+            "timestamp": "2025-08-11T19:44:23.069265",
+            "user_message": "schedule call",
+            "assistant_response": "Could you please provide me with the details for the call you'd like to schedule? Specifically, I ne..."
+          },
+          {
+            "timestamp": "2025-08-11T19:44:36.431072",
+            "user_message": "schedule a call for tomorrow at 2pm",
+            "assistant_response": "It seems that your Google Calendar is not currently connected. Please authenticate your account usin..."
+          }
+        ],
+        "current_context": {
+          "last_interaction": "2025-08-11T19:45:11.384638",
+          "current_projects": [],
+          "recent_topics": [
+            "meeting",
+            "time:morning",
+            "schedule",
+            "time:tomorrow",
+            "call",
+            "calendar"
+          ],
+          "frequent_contacts": {},
+          "scheduling_patterns": {},
+          "session_count": 10,
+          "user_insights": {}
+        }
+      }
+    },
+    "session_id": "unknown"
+  }
+]

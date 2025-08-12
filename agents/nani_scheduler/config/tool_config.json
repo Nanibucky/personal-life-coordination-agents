@@ -6,7 +6,7 @@
     "user_email": "pyayalat@gmail.com"
   },
   "scheduling_optimizer": {
-    "openai_api_key": "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",
+    "openai_api_key": "${OPENAI_API_KEY}",
     "optimization_algorithm": "genetic",
     "max_optimization_time": 30
   },

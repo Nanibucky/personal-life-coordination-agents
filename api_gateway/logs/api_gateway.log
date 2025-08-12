@@ -42,3 +42,975 @@
 {"timestamp": "2025-08-10T21:29:24.154436", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 97}
 {"timestamp": "2025-08-10T21:29:24.159800", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 83}
 {"timestamp": "2025-08-10T21:29:24.159876", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 709}
+{"timestamp": "2025-08-10T21:31:29.231910", "level": "INFO", "logger": "api_gateway", "message": "Starting workflow wf_1754875889.229698_frontend_user: general_query", "module": "main", "function": "_execute_workflow_background", "line": 350}
+{"timestamp": "2025-08-10T21:31:29.237784", "level": "ERROR", "logger": "api_gateway", "message": "Workflow wf_1754875889.229698_frontend_user failed to start: HTTP 404: {\"detail\":\"Not Found\"}", "module": "main", "function": "_execute_workflow_background", "line": 377}
+{"timestamp": "2025-08-11T01:19:28.489881", "level": "ERROR", "logger": "api_gateway", "message": "Failed to execute tool scheduling_optimizer on agent nani: 404: Tool execution failed: {\"detail\":\"Not Found\"}", "module": "main", "function": "execute_agent_tool", "line": 313}
+{"timestamp": "2025-08-11T01:23:19.583050", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:23:19.583308", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:23:19.583383", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:23:19.583428", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:23:19.588793", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 83}
+{"timestamp": "2025-08-11T01:23:19.588860", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 781}
+{"timestamp": "2025-08-11T01:42:48.884695", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:42:48.885083", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:42:48.885157", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:42:48.885200", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:42:48.891130", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 83}
+{"timestamp": "2025-08-11T01:42:48.891204", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 781}
+{"timestamp": "2025-08-11T01:57:28.749532", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:57:28.749801", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:57:28.749852", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:57:28.749888", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 97}
+{"timestamp": "2025-08-11T01:57:28.755666", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 83}
+{"timestamp": "2025-08-11T01:57:28.755752", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 799}
+{"timestamp": "2025-08-11T01:58:23.876546", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T01:58:23.876847", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T01:58:23.876927", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T01:58:23.876972", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T01:58:23.883155", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T01:58:23.883251", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 803}
+{"timestamp": "2025-08-11T02:02:09.982410", "level": "INFO", "logger": "api_gateway", "message": "Starting workflow wf_1754892129.981357_frontend_user: general_query", "module": "main", "function": "_execute_workflow_background", "line": 426}
+{"timestamp": "2025-08-11T02:02:09.987939", "level": "ERROR", "logger": "api_gateway", "message": "Workflow wf_1754892129.981357_frontend_user failed to start: HTTP 404: {\"detail\":\"Not Found\"}", "module": "main", "function": "_execute_workflow_background", "line": 453}
+{"timestamp": "2025-08-11T02:26:16.325469", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:26:16.325649", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:26:16.325721", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:26:16.325779", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:26:16.351561", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T02:26:16.352046", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 803}
+{"timestamp": "2025-08-11T02:33:27.961027", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:33:27.961267", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:33:27.961320", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:33:27.961361", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:33:27.966787", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T02:33:27.966851", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 803}
+{"timestamp": "2025-08-11T02:42:18.311414", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:42:18.311653", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:42:18.311708", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:42:18.311747", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:42:18.317225", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T02:42:18.317286", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 886}
+{"timestamp": "2025-08-11T02:43:20.201316", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:43:20.201558", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:43:20.201635", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:43:20.201683", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T02:43:20.207096", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T02:43:20.207162", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 950}
+{"timestamp": "2025-08-11T15:24:15.912341", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T15:24:15.912554", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T15:24:15.912615", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T15:24:15.912654", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T15:24:15.918019", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T15:24:15.918079", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 952}
+{"timestamp": "2025-08-11T16:07:29.606873", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:07:29.607144", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:07:29.607221", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:07:29.607263", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:07:29.613091", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T16:07:29.613169", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 952}
+{"timestamp": "2025-08-11T16:25:14.604367", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:25:14.604610", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:25:14.604663", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:25:14.604706", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:25:14.610008", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T16:25:14.610069", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 952}
+{"timestamp": "2025-08-11T16:31:28.748683", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:31:28.748920", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:31:28.748978", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:31:28.749019", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T16:31:28.754849", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T16:31:28.754943", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 984}
+{"timestamp": "2025-08-11T18:59:15.894109", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T18:59:15.894327", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T18:59:15.894381", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T18:59:15.894422", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T18:59:15.899945", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T18:59:15.900015", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 985}
+{"timestamp": "2025-08-11T18:59:55.618708", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T18:59:55.619110", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T18:59:55.619162", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T18:59:55.619201", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T18:59:55.624554", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T18:59:55.624616", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 985}
+{"timestamp": "2025-08-11T19:05:29.228167", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:05:29.228416", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:05:29.228472", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:05:29.228513", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:05:29.233775", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:05:29.233840", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:05:59.206915", "level": "ERROR", "logger": "api_gateway", "message": "NANI LangChain agent error: 'LangChainNaniAgent' object has no attribute 'memory_manager'", "module": "main", "function": "chat_with_agent", "line": 407}
+{"timestamp": "2025-08-11T19:06:12.362805", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:06:12.362926", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:06:12.362978", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:06:12.363021", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:06:12.368337", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:06:12.368401", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:19:26.731846", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:19:26.732107", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:19:26.732159", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:19:26.732199", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:19:26.737528", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:19:26.737592", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:20:05.187550", "level": "ERROR", "logger": "api_gateway", "message": "NANI LangChain agent error: \"CalendarManagerTool\" object has no field \"google_calendar\"", "module": "main", "function": "chat_with_agent", "line": 407}
+{"timestamp": "2025-08-11T19:21:19.970772", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:21:19.971000", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:21:19.971071", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:21:19.971113", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:21:19.976497", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:21:19.976561", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:22:04.266371", "level": "ERROR", "logger": "api_gateway", "message": "NANI LangChain agent error: \"CalendarManagerTool\" object has no field \"google_calendar\"", "module": "main", "function": "chat_with_agent", "line": 407}
+{"timestamp": "2025-08-11T19:23:49.640117", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:23:49.640376", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:23:49.640435", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:23:49.640475", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:23:49.645807", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:23:49.645880", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:40:15.345914", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:40:15.346161", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:40:15.346212", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:40:15.346251", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:40:15.351760", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:40:15.351822", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:42:48.364733", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:42:48.365002", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:42:48.365091", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:42:48.365139", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:42:48.371488", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:42:48.371565", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:43:17.986631", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:43:17.986886", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:43:17.986958", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:43:17.987003", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:43:17.992482", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:43:17.992542", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:43:50.079582", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:43:50.079831", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:43:50.079903", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:43:50.079949", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:43:50.085298", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:43:50.085364", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:44:14.247467", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:44:14.247711", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:44:14.247762", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:44:14.247802", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:44:14.253054", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:44:14.253117", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:44:57.878507", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:44:57.878766", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:44:57.878819", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:44:57.878871", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 101}
+{"timestamp": "2025-08-11T19:44:57.884123", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 87}
+{"timestamp": "2025-08-11T19:44:57.884185", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1006}
+{"timestamp": "2025-08-11T19:48:43.021771", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 104}
+{"timestamp": "2025-08-11T19:48:43.021995", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 104}
+{"timestamp": "2025-08-11T19:48:43.022070", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 104}
+{"timestamp": "2025-08-11T19:48:43.022111", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 104}
+{"timestamp": "2025-08-11T19:48:43.027961", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 90}
+{"timestamp": "2025-08-11T19:48:43.029293", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1069}
+{"timestamp": "2025-08-11T20:07:22.212366", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:07:22.213355", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:07:22.213428", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:07:22.213471", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:07:22.220122", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 91}
+{"timestamp": "2025-08-11T20:07:22.220203", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1060}
+{"timestamp": "2025-08-11T20:07:33.518106", "level": "ERROR", "logger": "api_gateway", "message": "Chat error with agent nani: cannot access local variable 'aiohttp' where it is not associated with a value", "module": "main", "function": "chat_with_agent", "line": 592}
+{"timestamp": "2025-08-11T20:07:58.249863", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:07:58.249976", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:07:58.250026", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:07:58.250066", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:07:58.255835", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 91}
+{"timestamp": "2025-08-11T20:07:58.255895", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1057}
+{"timestamp": "2025-08-11T20:08:03.733514", "level": "ERROR", "logger": "api_gateway", "message": "MCP server error for nani: {\"detail\":\"Not Found\"}", "module": "main", "function": "chat_with_agent", "line": 389}
+{"timestamp": "2025-08-11T20:09:07.540275", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:09:07.540392", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:09:07.540444", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:09:07.540485", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:09:07.546226", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 91}
+{"timestamp": "2025-08-11T20:09:07.546292", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1101}
+{"timestamp": "2025-08-11T20:09:44.583190", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:09:54.573274", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:10:04.572005", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:10:14.572172", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:10:24.571925", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:10:34.573472", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:10:44.571403", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:10:54.572475", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:11:04.573400", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:11:14.576868", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:11:24.574122", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:11:34.573313", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:11:44.573540", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:11:54.574602", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:12:04.572851", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:12:14.572959", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:12:24.575418", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:12:34.572506", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:12:44.576044", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:12:54.574218", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:13:04.574141", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:13:14.573071", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:13:24.573111", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:13:44.573642", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:19:22.674891", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:25:45.202897", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:25:45.203009", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:25:45.203057", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:25:45.203095", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:25:45.208882", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 91}
+{"timestamp": "2025-08-11T20:25:45.208953", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1100}
+{"timestamp": "2025-08-11T20:27:43.140628", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:27:53.160547", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:29:03.163846", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:29:43.152026", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent nani: Cannot connect to host localhost:8005 ssl:default [Connect call failed ('127.0.0.1', 8005)]", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:35:34.512999", "level": "INFO", "logger": "api_gateway", "message": "Registered agent bucky at http://localhost:8002", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:35:34.513117", "level": "INFO", "logger": "api_gateway", "message": "Registered agent luna at http://localhost:8003", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:35:34.513167", "level": "INFO", "logger": "api_gateway", "message": "Registered agent milo at http://localhost:8004", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:35:34.513207", "level": "INFO", "logger": "api_gateway", "message": "Registered agent nani at http://localhost:8005", "module": "main", "function": "_register_agents", "line": 105}
+{"timestamp": "2025-08-11T20:35:34.518953", "level": "INFO", "logger": "api_gateway", "message": "API Gateway initialized successfully", "module": "main", "function": "__init__", "line": 91}
+{"timestamp": "2025-08-11T20:35:34.519016", "level": "INFO", "logger": "api_gateway", "message": "Starting API Gateway on 0.0.0.0:8000", "module": "main", "function": "run", "line": 1187}
+{"timestamp": "2025-08-11T20:42:40.301554", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:42:50.318300", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:42:52.321205", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:00.291823", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:02.294828", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:04.297601", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:10.290082", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:12.293402", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:14.295795", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:20.291059", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:22.293546", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:24.295435", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:30.290335", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:32.293412", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:34.295831", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:40.290371", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:42.293811", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:44.296832", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:50.298970", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:52.301189", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:43:54.303074", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:00.291425", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:02.293380", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:04.296874", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:10.291507", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:12.295626", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:14.297938", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:20.292468", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:22.297211", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:24.299823", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:30.291402", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:32.294677", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:34.297881", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:40.291342", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:42.295317", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:44.298890", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:50.290335", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:52.293267", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:44:54.295753", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:00.291047", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:02.293860", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:04.296214", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:10.288860", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:12.291241", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:14.292133", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:20.290880", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:22.293613", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:24.295440", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:30.291407", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:32.294284", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:34.297098", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:40.288878", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:42.291478", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:44.293916", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:50.290604", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:52.291539", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:45:54.292780", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:00.287890", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:02.290097", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:04.291309", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:10.289523", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:12.292209", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:14.294851", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:20.293212", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:22.296164", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:24.298448", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:30.289709", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:32.292329", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:34.294956", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:40.289054", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:42.292214", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:44.294044", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:50.293599", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:52.296623", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:46:54.298831", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:00.291501", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:02.294216", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:04.296308", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:10.287219", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:12.289785", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:14.291665", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:20.289327", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:22.291838", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:24.293235", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:30.289147", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:32.291593", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:34.294464", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:40.288226", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:42.291587", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:44.294317", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:50.287447", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:52.289613", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:47:54.291344", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:00.287138", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:02.290533", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:04.292568", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:10.287729", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:12.290017", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:14.292468", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:20.287980", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:22.290086", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:24.291953", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:30.288139", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:32.290292", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:34.292880", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:40.286944", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:42.290454", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:44.292460", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:50.286025", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:52.289308", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:48:54.291283", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:00.287348", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:02.290725", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:04.293110", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:10.287435", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:12.290604", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:14.293373", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:20.288708", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:22.292081", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:24.295154", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:30.287962", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:32.290044", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:34.292641", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:40.288105", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:42.291177", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:44.293902", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:50.285875", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:52.288073", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:49:54.289932", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:00.286268", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:02.288393", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:04.290072", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:10.296405", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:12.299090", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:14.301057", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:20.294067", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:22.296932", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:24.298574", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:30.287649", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:32.289594", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:34.292066", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:40.286463", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:42.290596", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:44.294037", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:50.287727", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:52.290659", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:50:54.293636", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:00.290331", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:02.292587", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:04.295762", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:10.288573", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:12.292088", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:14.295437", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:20.287709", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:22.290757", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:24.294064", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:30.288085", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:32.290400", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:34.293903", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:40.288542", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:42.291162", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:44.295093", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:50.287069", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:52.291049", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:51:54.294285", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:00.287164", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:02.291232", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:04.292972", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:10.286434", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:12.288863", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:14.292273", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:20.289857", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:22.291918", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:24.294697", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:30.287971", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:32.290244", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:34.293947", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:40.288113", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:42.291294", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:44.294366", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:50.283519", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:52.286422", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:52:54.287901", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:00.287734", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:02.290388", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:04.292375", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:10.285940", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:12.287850", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:14.290002", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:20.285767", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:22.287545", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:24.288768", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:30.286238", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:32.288802", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:34.291539", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:40.285768", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:42.288473", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:44.291784", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:50.285155", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:52.287499", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:53:54.288267", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:00.285085", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:02.288544", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:04.290720", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:10.286263", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:12.288739", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:14.290162", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:20.285237", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:22.288520", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:24.292300", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:30.285619", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:32.287863", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:34.289717", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:40.284479", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:42.288117", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:44.290642", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:50.283832", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:52.285944", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:54:54.288607", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:00.283876", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:02.288212", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:04.290702", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:10.284917", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:12.287226", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:14.289923", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:20.284715", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:22.286440", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:24.288570", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:30.286728", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:32.289080", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:34.290405", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:40.284137", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:42.287226", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:44.288579", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:50.298820", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:52.301193", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:55:54.303290", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:00.285890", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:02.288836", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:04.291586", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:10.284075", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:12.287338", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:14.289892", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:20.284944", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:22.287129", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:24.289854", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:30.284026", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:32.285870", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:34.287509", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:40.284763", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:42.287718", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:44.289692", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:50.286040", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:52.287397", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:56:54.289060", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:00.284628", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:02.287310", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:04.289019", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:10.289314", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:12.292562", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:14.294029", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:20.283612", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:22.287202", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:24.289262", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:30.284561", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:32.287689", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:34.290089", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:40.283388", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:42.286702", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:44.289185", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:50.283911", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:52.287295", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:57:54.289638", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:00.284554", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:02.287077", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:04.288298", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:10.282467", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:12.286438", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:14.288230", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:20.284161", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:22.287076", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:24.289610", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:30.286275", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:32.289467", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:34.291757", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:40.282313", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:42.286539", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:44.289079", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:50.281507", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:52.283864", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:58:54.285937", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:00.282236", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:02.285003", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:04.287242", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:10.284719", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:12.288284", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:14.290719", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:20.284094", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:22.286612", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:24.288486", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:30.283773", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:32.286900", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:34.289153", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:40.282960", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:42.289969", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:44.293594", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:50.283159", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:52.285699", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T20:59:54.287383", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:00.283561", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:02.286510", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:04.288292", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:10.300570", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:12.303677", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:14.305770", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:20.285400", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:22.287906", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:24.289699", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:30.284297", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:32.288002", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:34.290691", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:40.283251", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:42.286556", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:44.288680", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:50.281855", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:52.284258", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:00:54.286017", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:00.285307", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:02.287987", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:04.290308", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:10.283633", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:12.286705", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:14.289155", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:20.282907", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:22.286277", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:24.288581", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:30.283247", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:32.286155", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:34.288521", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:40.282737", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:42.285649", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:44.288256", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:50.280230", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:52.282383", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:01:54.284395", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:00.283060", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:02.286356", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:04.288816", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:10.282676", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:12.284382", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:14.286316", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:20.280506", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:22.282563", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:24.284889", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:30.282665", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:32.285753", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:34.288351", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:40.283000", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:42.286017", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:44.288821", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:50.280544", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:52.282511", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:02:54.284457", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:00.280397", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:02.281645", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:04.283412", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:10.284153", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:12.286835", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:14.289521", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:20.282043", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:22.285333", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:24.287573", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:30.281696", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:32.284774", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:34.288537", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:40.281803", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:42.285691", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:44.288005", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:50.283214", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:52.285580", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:03:54.287250", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:00.281906", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:02.284224", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:04.286825", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:10.281844", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:12.284535", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:14.287083", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:20.281573", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:22.284553", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:24.286821", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:30.280398", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:32.283196", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:34.285546", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:40.285461", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:42.288896", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:44.291175", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:50.279917", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:52.282027", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:04:54.284083", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:00.281989", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:02.284273", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:04.287013", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:10.281129", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:12.284625", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:14.288159", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:20.283680", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:22.285630", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:24.288184", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:30.279120", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:32.282377", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:34.284860", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:40.284242", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:42.288887", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:44.292320", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:50.280728", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:52.283814", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:05:54.285910", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:00.281187", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:02.284962", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:04.288198", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:10.283455", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:12.287326", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:14.290305", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:20.281253", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:22.285214", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:24.288354", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:30.281392", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:32.284784", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:34.286332", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:40.282391", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:42.285169", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:44.289326", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:50.279054", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:52.282635", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:06:54.285727", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:00.284219", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:02.286583", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:04.290137", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:10.283801", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:12.285619", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:14.289658", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:20.282631", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:22.285345", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:24.287173", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:30.280812", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:32.283771", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:34.287269", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:40.282260", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:42.284878", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:44.288113", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:50.280005", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:52.283629", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:07:54.286391", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:00.282179", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:02.286263", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:04.289620", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:10.280264", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:12.284172", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:14.286779", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:20.281609", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:22.285292", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:24.286937", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:30.282447", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:32.284593", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:34.287917", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:40.283257", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:42.287496", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:44.291347", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:50.280957", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:52.284400", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:08:54.287288", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:00.282110", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:02.285436", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:04.288957", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:10.281650", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:12.284790", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:14.286722", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:20.278696", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:22.282081", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:24.284252", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:30.280826", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:32.283262", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:34.284642", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:40.280123", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:42.283501", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:44.285812", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:50.283295", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:52.286615", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:09:54.289923", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:00.279243", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:02.282493", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:04.284446", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:10.280301", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:12.284001", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:14.287176", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:20.280765", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:22.284045", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:24.286486", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:30.282073", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:32.284353", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:34.287719", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:40.281448", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:42.284316", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:44.286039", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:50.278893", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:52.282349", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:10:54.285830", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:00.282865", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:02.286044", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:04.289509", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:10.280032", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:12.284239", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:14.286034", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:20.279965", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:22.282372", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:24.284297", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:30.279890", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:32.283338", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:34.286550", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:40.279540", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:42.282594", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:44.284730", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:50.279005", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:52.280524", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:11:54.283416", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:00.279268", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:02.282665", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:04.286615", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:10.282142", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:12.285994", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:14.289651", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:20.280453", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:22.283387", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:24.285624", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:30.279721", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:32.283078", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:34.284311", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:40.281275", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:42.283877", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:44.287463", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:50.277478", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:52.281620", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:12:54.283430", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:00.277676", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:02.281737", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:04.283344", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:10.279918", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:12.284162", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:14.287740", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:20.280110", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:22.283629", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:24.285762", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:30.279961", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:32.284243", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:34.288076", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:40.280260", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:42.285176", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:44.289230", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:50.275996", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:52.278850", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:13:54.281977", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:00.278499", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:02.282543", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:04.287826", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:10.277031", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:12.281633", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:14.283470", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:20.279353", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:22.281798", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:24.283371", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:30.279672", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:32.283604", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:34.287136", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:40.278898", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:42.281829", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:44.285119", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:50.276795", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:52.280049", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:14:54.281226", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:00.276382", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:02.280866", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:04.282894", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:10.279778", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:12.283685", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:14.286145", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:20.279709", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:22.281502", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:24.283421", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:30.278201", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:32.280772", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:34.284135", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:40.280507", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:42.284552", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:44.288125", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:50.277897", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:52.282002", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:15:54.284970", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:00.278302", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:02.281807", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:04.285622", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:10.280510", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:12.285142", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:14.287646", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:20.278391", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:22.282134", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:24.283980", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:30.278686", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:32.281302", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:34.284660", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:40.275753", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:42.280636", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:44.282317", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:50.276486", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:52.279969", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:16:54.282056", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:00.278209", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:02.281007", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:04.284657", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:10.277192", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:12.281384", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:14.284415", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:20.277089", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:22.281468", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:24.284721", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:30.280682", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:32.283987", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:34.286482", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:40.280692", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:42.283639", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:44.286353", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:50.277259", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:52.280761", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:17:54.283614", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:00.277783", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:02.282480", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:04.285666", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:10.276675", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:12.280715", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:14.284080", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:20.276149", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:22.278858", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:24.282508", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:30.275724", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:32.279451", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:34.282970", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:40.275637", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:42.279998", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:44.283466", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:50.274947", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:52.279992", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:18:54.283235", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:00.276502", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:02.277433", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:04.279668", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:10.277340", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:12.280244", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:14.283423", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:20.274841", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:22.278114", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:24.280060", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:30.275233", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:32.279976", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:34.281672", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:40.275821", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:42.280091", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:44.281666", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:50.279776", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:52.282157", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:19:54.284927", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:00.276356", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:02.279211", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:04.282048", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:10.276332", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:12.277864", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:14.282567", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:20.275063", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:22.278970", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:24.282556", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:30.275322", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:32.277707", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:34.279674", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:40.274693", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:42.279236", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:44.282338", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:50.274830", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:52.278439", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:20:54.280118", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:00.274165", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:02.278055", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:04.279971", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:10.274005", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:12.276916", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:14.279657", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:20.275444", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:22.278240", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:24.281043", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:30.274211", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:32.276382", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:34.279125", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:40.274661", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:42.278033", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:44.279597", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:50.272879", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:52.275225", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:21:54.277181", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:00.271596", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:02.273414", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:04.275579", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:10.273912", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:12.277240", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:14.279762", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:20.272875", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:22.275026", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:24.276993", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:30.272062", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:32.274351", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:34.276171", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:40.307531", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:42.310183", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:44.313160", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:50.273000", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:52.275425", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:22:54.277951", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:00.273977", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:02.276806", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:04.279592", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:10.272785", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:12.275028", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:14.278167", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:20.272149", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:22.274465", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:24.276916", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:30.272346", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:32.275551", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:34.278052", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:40.273312", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:42.276243", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:44.279045", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:50.277975", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:52.279990", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:23:54.281405", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:24:00.271644", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:24:02.272460", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:24:04.273913", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:24:10.272773", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent bucky: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:24:12.275328", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent luna: ", "module": "main", "function": "list_agents", "line": 155}
+{"timestamp": "2025-08-11T21:24:14.276831", "level": "WARNING", "logger": "api_gateway", "message": "Failed to check agent milo: ", "module": "main", "function": "list_agents", "line": 155}

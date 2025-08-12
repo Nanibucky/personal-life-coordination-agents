@@ -1,21 +1,21 @@
 {
   "deal_finder": {
-    "groupon_api_key": "",
-    "honey_account": "",
-    "rakuten_api_key": "",
-    "ibotta_api_key": "",
+    "groupon_api_key": "${GROUPON_API_KEY}",
+    "honey_account": "${HONEY_ACCOUNT}",
+    "rakuten_api_key": "${RAKUTEN_API_KEY}",
+    "ibotta_api_key": "${IBOTTA_API_KEY}",
     "max_deals_per_search": 20
   },
   "price_comparator": {
-    "kroger_api_key": "",
-    "walmart_api_key": "",
-    "target_api_key": "",
-    "costco_api_key": "",
-    "whole_foods_api_key": "",
+    "kroger_api_key": "${KROGER_API_KEY}",
+    "walmart_api_key": "${WALMART_API_KEY}",
+    "target_api_key": "${TARGET_API_KEY}",
+    "costco_api_key": "${COSTCO_API_KEY}",
+    "whole_foods_api_key": "${WHOLE_FOODS_API_KEY}",
     "price_threshold": 10
   },
   "shopping_optimizer": {
-    "openai_api_key": "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",
+    "openai_api_key": "${OPENAI_API_KEY}",
     "preferred_stores": "Target, Whole Foods, Kroger",
     "max_travel_distance": 15,
     "budget_optimization": true
@@ -24,6 +24,6 @@
     "storage_type": "local",
     "expiration_alerts": true,
     "alert_days_before": 3,
-    "barcode_scanner_api": ""
+    "barcode_scanner_api": "${BARCODE_SCANNER_API_KEY}"
   }
 }
